@@ -7,15 +7,11 @@ part 'savings_account_provider.g.dart';
 class SavingsProvider extends _$SavingsProvider {
   @override
   Account build() {
-    incrementAndStuff();
     return const Account(0);
   }
 
-  Future<void> incrementAndStuff() async {
-    while (true) {
-      await Future<dynamic>.delayed(const Duration(seconds: 1));
-      state = state.copyWith(sum: state.sum + 3);
-    }
+  void add(double money) {
+    state = state.copyWith(sum: state.sum + money);
   }
 
   void updateWith(double sum) {
