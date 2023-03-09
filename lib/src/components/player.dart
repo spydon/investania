@@ -17,7 +17,8 @@ class Player extends SpriteAnimationComponent
   }
 
   final Vector2 textureSize = Vector2(113, 176);
-  Vector2 get playerSize => textureSize * 4;
+  Vector2 get playerSize => textureSize;
+
   final Vector2 _minClamp = Vector2.zero();
   final Vector2 _maxClamp = Vector2.zero();
   final Vector2 direction = Vector2.zero();
@@ -25,7 +26,7 @@ class Player extends SpriteAnimationComponent
 
   @override
   Future<void> onLoad() async {
-    size = playerSize;
+    size = textureSize;
     _minClamp
       ..setFrom(size / 2)
       ..add(Vector2.all(1));
