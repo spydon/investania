@@ -30,8 +30,10 @@ class PayCheckComponent extends SpriteComponent with HasGameReference {
   }
 
   void _move() {
-    if (y < game.size.y - _size) {
+    if (y < game.size.y) {
       position += _movementSpeed;
+    } else {
+      removeFromParent();
     }
   }
 }

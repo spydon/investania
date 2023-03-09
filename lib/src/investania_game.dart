@@ -1,5 +1,6 @@
 import 'package:flame/components.dart';
 import 'package:flame/experimental.dart';
+import 'package:investania/src/components/paycheck_component.dart';
 import 'package:investania/src/components/player.dart';
 import 'package:investania/src/components/savings_account_sum_component.dart';
 
@@ -14,6 +15,7 @@ class InvestaniaGame extends PositionComponent {
     addAll([camera, world]);
     world.addAll([
       Player(),
+      PayCheckComponent(),
     ]);
     camera.viewport.add(SavingsAccountSum());
   }
