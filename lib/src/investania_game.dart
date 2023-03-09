@@ -1,6 +1,5 @@
 import 'package:flame/components.dart';
 import 'package:flame/experimental.dart';
-
 import 'package:investania/src/components/player.dart';
 
 class InvestaniaGame extends PositionComponent {
@@ -12,6 +11,8 @@ class InvestaniaGame extends PositionComponent {
     camera = CameraComponent(world: world);
     camera.viewfinder.anchor = Anchor.topLeft;
     addAll([camera, world]);
-    world.add(Player());
+    world.addAll([
+      Player(),
+    ]);
   }
 }
