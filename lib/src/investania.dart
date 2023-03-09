@@ -3,6 +3,7 @@ import 'package:flame/game.dart';
 import 'package:flame_riverpod/flame_riverpod.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:investania/src/investania_game.dart';
+import 'package:investania/src/screens/menu.dart';
 
 class Investania extends FlameGame
     with HasComponentRef, HasKeyboardHandlerComponents, HasCollisionDetection {
@@ -15,8 +16,14 @@ class Investania extends FlameGame
   @override
   Future<void> onLoad() async {
     router = RouterComponent(
-      initialRoute: 'game',
+      initialRoute: 'menu',
       routes: {
+        'menu': OverlayRoute(
+          (context, game) => Menu(
+            context: context,
+            router: router,
+          ),
+        ),
         'game': Route(InvestaniaGame.new),
       },
     );

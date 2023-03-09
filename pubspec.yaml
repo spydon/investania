@@ -2,17 +2,21 @@ name: investania
 description: A Skandia Hackathon 2023 game about saving money
 
 # Prevent accidental publishing to pub.dev.
-publish_to: "none"
+publish_to: 'none'
 
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.19.3 <3.0.0"
+  sdk: '>=2.19.3 <3.0.0'
 
 dependencies:
   build_runner: ^2.3.3
   collection: ^1.17.0
-  flame: ^1.6.0
+  flame:
+    git:
+      url: https://github.com/flame-engine/flame.git
+      ref: main
+      path: packages/flame
   flame_riverpod: ^4.0.0+2
   flutter:
     sdk: flutter
@@ -20,6 +24,14 @@ dependencies:
   freezed: ^2.3.2
   freezed_annotation: ^2.2.0
   riverpod_annotation: ^2.0.1
+
+dependency_overrides:
+  flame:
+    git:
+      url: https://github.com/flame-engine/flame.git
+      ref: main
+      path: packages/flame
+
 
 dev_dependencies:
   flame_lint: ^0.2.0

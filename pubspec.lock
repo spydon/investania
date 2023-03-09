@@ -204,10 +204,11 @@ packages:
   flame:
     dependency: "direct main"
     description:
-      name: flame
-      sha256: "0c55f8d704f09536125c811a19d9aab7407dce245b2bfb507e84296c1c996202"
-      url: "https://pub.dev"
-    source: hosted
+      path: "packages/flame"
+      ref: main
+      resolved-ref: f125593aaaaef160395b772180b1514f6be3ac4f
+      url: "https://github.com/flame-engine/flame.git"
+    source: git
     version: "1.6.0"
   flame_lint:
     dependency: "direct dev"
@@ -589,4 +590,4 @@ packages:
     version: "3.1.1"
 sdks:
   dart: ">=2.19.3 <3.0.0"
-  flutter: ">=3.3.0"
+  flutter: ">=3.0.0"
