@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SavingsAccounts {
-  List<_Account> get accounts => throw _privateConstructorUsedError;
+  List<Account> get accounts => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SavingsAccountsCopyWith<SavingsAccounts> get copyWith =>
@@ -29,7 +29,7 @@ abstract class $SavingsAccountsCopyWith<$Res> {
           SavingsAccounts value, $Res Function(SavingsAccounts) then) =
       _$SavingsAccountsCopyWithImpl<$Res, SavingsAccounts>;
   @useResult
-  $Res call({List<_Account> accounts});
+  $Res call({List<Account> accounts});
 }
 
 /// @nodoc
@@ -51,7 +51,7 @@ class _$SavingsAccountsCopyWithImpl<$Res, $Val extends SavingsAccounts>
       accounts: null == accounts
           ? _value.accounts
           : accounts // ignore: cast_nullable_to_non_nullable
-              as List<_Account>,
+              as List<Account>,
     ) as $Val);
   }
 }
@@ -64,7 +64,7 @@ abstract class _$$_SavingsAccountsCopyWith<$Res>
       __$$_SavingsAccountsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<_Account> accounts});
+  $Res call({List<Account> accounts});
 }
 
 /// @nodoc
@@ -84,7 +84,7 @@ class __$$_SavingsAccountsCopyWithImpl<$Res>
       null == accounts
           ? _value._accounts
           : accounts // ignore: cast_nullable_to_non_nullable
-              as List<_Account>,
+              as List<Account>,
     ));
   }
 }
@@ -92,13 +92,13 @@ class __$$_SavingsAccountsCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SavingsAccounts extends _SavingsAccounts {
-  const _$_SavingsAccounts(final List<_Account> accounts)
+  const _$_SavingsAccounts(final List<Account> accounts)
       : _accounts = accounts,
         super._();
 
-  final List<_Account> _accounts;
+  final List<Account> _accounts;
   @override
-  List<_Account> get accounts {
+  List<Account> get accounts {
     if (_accounts is EqualUnmodifiableListView) return _accounts;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_accounts);
@@ -129,129 +129,14 @@ class _$_SavingsAccounts extends _SavingsAccounts {
 }
 
 abstract class _SavingsAccounts extends SavingsAccounts {
-  const factory _SavingsAccounts(final List<_Account> accounts) =
+  const factory _SavingsAccounts(final List<Account> accounts) =
       _$_SavingsAccounts;
   const _SavingsAccounts._() : super._();
 
   @override
-  List<_Account> get accounts;
+  List<Account> get accounts;
   @override
   @JsonKey(ignore: true)
   _$$_SavingsAccountsCopyWith<_$_SavingsAccounts> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-mixin _$_Account {
-  int get sum => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  _$AccountCopyWith<_Account> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$AccountCopyWith<$Res> {
-  factory _$AccountCopyWith(_Account value, $Res Function(_Account) then) =
-      __$AccountCopyWithImpl<$Res, _Account>;
-  @useResult
-  $Res call({int sum});
-}
-
-/// @nodoc
-class __$AccountCopyWithImpl<$Res, $Val extends _Account>
-    implements _$AccountCopyWith<$Res> {
-  __$AccountCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? sum = null,
-  }) {
-    return _then(_value.copyWith(
-      sum: null == sum
-          ? _value.sum
-          : sum // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$__AccountCopyWith<$Res> implements _$AccountCopyWith<$Res> {
-  factory _$$__AccountCopyWith(
-          _$__Account value, $Res Function(_$__Account) then) =
-      __$$__AccountCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int sum});
-}
-
-/// @nodoc
-class __$$__AccountCopyWithImpl<$Res>
-    extends __$AccountCopyWithImpl<$Res, _$__Account>
-    implements _$$__AccountCopyWith<$Res> {
-  __$$__AccountCopyWithImpl(
-      _$__Account _value, $Res Function(_$__Account) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? sum = null,
-  }) {
-    return _then(_$__Account(
-      null == sum
-          ? _value.sum
-          : sum // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$__Account implements __Account {
-  const _$__Account(this.sum);
-
-  @override
-  final int sum;
-
-  @override
-  String toString() {
-    return '_Account(sum: $sum)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$__Account &&
-            (identical(other.sum, sum) || other.sum == sum));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, sum);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$__AccountCopyWith<_$__Account> get copyWith =>
-      __$$__AccountCopyWithImpl<_$__Account>(this, _$identity);
-}
-
-abstract class __Account implements _Account {
-  const factory __Account(final int sum) = _$__Account;
-
-  @override
-  int get sum;
-  @override
-  @JsonKey(ignore: true)
-  _$$__AccountCopyWith<_$__Account> get copyWith =>
       throw _privateConstructorUsedError;
 }
