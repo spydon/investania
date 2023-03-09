@@ -41,6 +41,9 @@ class Player extends SpriteAnimationGroupComponent<PlayerState>
     if (!isColliding) {
       position.x += direction.x * speed * dt;
       position.y += direction.y * speed * dt;
+      if (position.y < _maxClamp.y - _maxClamp.y / 3.5) {
+        position.y = _maxClamp.y - _maxClamp.y / 3.5;
+      }
     }
   }
 
