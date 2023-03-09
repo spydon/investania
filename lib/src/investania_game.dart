@@ -1,6 +1,8 @@
 import 'package:flame/components.dart';
 import 'package:flame/experimental.dart';
 
+import 'package:investania/src/components/player.dart';
+
 class InvestaniaGame extends PositionComponent {
   late final CameraComponent camera;
   final World world = World();
@@ -8,13 +10,8 @@ class InvestaniaGame extends PositionComponent {
   @override
   Future<void> onLoad() async {
     camera = CameraComponent(world: world);
+    camera.viewfinder.anchor = Anchor.topLeft;
     addAll([camera, world]);
-    world.add(
-      TextComponent(
-        text: 'Investania',
-        position: (camera.viewfinder.visibleGameSize ?? Vector2.zero()) / 2,
-        anchor: Anchor.center,
-      ),
-    );
+    world.add(Player());
   }
 }
