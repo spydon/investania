@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:investania/src/providers/accounts/aie_account_provider.dart';
 import 'package:investania/src/providers/accounts/savings_account_provider.dart';
+import 'package:investania/src/providers/selected_investment_option_provider.dart';
 import 'package:investania/src/widgets/button.dart';
 
 class EndOfYear extends ConsumerWidget {
@@ -19,6 +20,7 @@ class EndOfYear extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final savings = ref.watch(savingsProviderProvider);
     final account = ref.watch(aieAccountProvider);
+    final investmentOption = ref.watch(selectedInvestmentOptionProvider);
     final max = savings.sum + account.sum;
     const textStyle = TextStyle(color: Colors.green);
     return MaterialApp(
@@ -86,11 +88,19 @@ class EndOfYear extends ConsumerWidget {
                   children: [
                     Button(
                       name: 'Interest account 2%',
-                      onTap: () {},
+                      onTap: () {
+                        ref
+                            .read(selectedInvestmentOptionProvider.notifier)
+                            .set(InvestmentOption.interest);
+                      },
                     ),
                     Button(
                       name: 'Fund account',
-                      onTap: () {},
+                      onTap: () {
+                        ref
+                            .read(selectedInvestmentOptionProvider.notifier)
+                            .set(InvestmentOption.fundAccount);
+                      },
                     ),
                   ],
                 ),
@@ -99,20 +109,40 @@ class EndOfYear extends ConsumerWidget {
                   children: [
                     Button(
                       name: 'High risk stocks',
-                      onTap: () {},
+                      onTap: () {
+                        ref
+                            .read(selectedInvestmentOptionProvider.notifier)
+                            .set(InvestmentOption.highriskStock);
+                      },
                     ),
                     Button(
                       name: 'Low risk stocks',
-                      onTap: () {},
+                      onTap: () {
+                        ref
+                            .read(selectedInvestmentOptionProvider.notifier)
+                            .set(InvestmentOption.lowriskStock);
+                      },
                     ),
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Text(
+                      'You have selected the $investmentOption',
+                      style: textStyle,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
                     Button(
                       name: 'Next year!',
-                      onTap: () {},
+                      onTap: () {
+                        router.pushReplacementNamed('game');
+                      },
                     ),
                   ],
                 ),

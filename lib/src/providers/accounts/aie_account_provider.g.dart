@@ -6,7 +6,7 @@ part of 'aie_account_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$aieAccountHash() => r'3845b558c3ca9f34377512ca5a74d1abe5981d06';
+String _$aieAccountHash() => r'0cc241ab0cd972cad2634ac4cc644034930b3977';
 
 /// See also [AieAccount].
 @ProviderFor(AieAccount)
