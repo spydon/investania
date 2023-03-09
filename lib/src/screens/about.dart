@@ -46,8 +46,8 @@ class About extends StatelessWidget {
                         'When you start the game you want to move around with'
                         ' the arrow keys to catch paychecks. You also need'
                         ' to catch the invoices because all of them will have'
-                        ' a due date and need to be paid in time. If they are not'
-                        ' paid, you probably know what happens ;)',
+                        ' a due date and need to be paid in time. If they are'
+                        ' not paid, you probably know what happens ;)',
                       ),
                       const SizedBox(height: 25),
                       const Text(
