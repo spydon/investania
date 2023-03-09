@@ -1,25 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'savings_account_provider.dart';
+part of 'selected_investment_option_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$savingsProviderHash() => r'9ee85974ee7ea35d1c2ff4d2263a116d2a41a04f';
+String _$selectedInvestmentOptionHash() =>
+    r'afd2f8302e9abbf9bf7f3f4edfbffe3a215b577b';
 
-/// See also [SavingsProvider].
-@ProviderFor(SavingsProvider)
-final savingsProviderProvider =
-    AutoDisposeNotifierProvider<SavingsProvider, Account>.internal(
-  SavingsProvider.new,
-  name: r'savingsProviderProvider',
+/// See also [SelectedInvestmentOption].
+@ProviderFor(SelectedInvestmentOption)
+final selectedInvestmentOptionProvider = AutoDisposeNotifierProvider<
+    SelectedInvestmentOption, InvestmentOption>.internal(
+  SelectedInvestmentOption.new,
+  name: r'selectedInvestmentOptionProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$savingsProviderHash,
+      : _$selectedInvestmentOptionHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$SavingsProvider = AutoDisposeNotifier<Account>;
+typedef _$SelectedInvestmentOption = AutoDisposeNotifier<InvestmentOption>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions
