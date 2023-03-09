@@ -12,7 +12,7 @@ class SavingsAccountSum extends Component with HasComponentRef {
     );
 
     listen(savingsProviderProvider, (oldValue, newValue) {
-      _textComponent.text = 'Sparkonto: ${newValue.sum}';
+      _textComponent.text = 'Sparkonto: ${newValue.sum.toInt()}';
     });
   }
 }
