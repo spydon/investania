@@ -1,5 +1,6 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
+import 'package:investania/src/widgets/button.dart';
 
 class Menu extends StatelessWidget {
   final BuildContext context;
@@ -21,66 +22,26 @@ class Menu extends StatelessWidget {
           width: 400,
           child: Column(
             children: [
-              _MenuButton(
-                router: router,
+              Button(
                 name: 'Start game',
-                routeName: 'game',
+                onTap: () => router.pushReplacementNamed('game'),
               ),
               const SizedBox(
                 height: 20,
               ),
-              _MenuButton(
-                router: router,
+              Button(
                 name: 'Highscore',
-                routeName: 'highscore',
+                onTap: () => router.pushReplacementNamed('highscore'),
               ),
               const SizedBox(
                 height: 20,
               ),
-              _MenuButton(
-                router: router,
+              Button(
                 name: 'About',
-                routeName: 'about',
+                onTap: () => router.pushReplacementNamed('about'),
               )
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _MenuButton extends StatelessWidget {
-  const _MenuButton({
-    required this.router,
-    required this.name,
-    required this.routeName,
-  });
-
-  final String name;
-  final String routeName;
-  final RouterComponent router;
-
-  @override
-  Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.greenAccent),
-        borderRadius: BorderRadius.circular(5),
-      ),
-      child: SizedBox(
-        height: 50,
-        width: 200,
-        child: InkWell(
-          child: Center(
-            child: Text(
-              name,
-              style: const TextStyle(color: Colors.green),
-            ),
-          ),
-          onTap: () {
-            router.pushReplacementNamed(routeName);
-          },
         ),
       ),
     );

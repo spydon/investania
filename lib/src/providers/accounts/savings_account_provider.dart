@@ -3,40 +3,24 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:investania/src/data/account.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'savings_account_provider.freezed.dart';
-
 part 'savings_account_provider.g.dart';
 
 @riverpod
 class SavingsProvider extends _$SavingsProvider {
   @override
-  SavingsAccounts build() {
-    const savingsAccounts = [
-      Account(0),
-    ];
-
+  Account build() {
     incrementAndStuff();
-
-    return const SavingsAccounts(savingsAccounts);
+    return const Account(0);
   }
 
   Future<void> incrementAndStuff() async {
     while (true) {
       await Future<dynamic>.delayed(const Duration(seconds: 1));
-      state = SavingsAccounts([
-        for (final acc in state.accounts) acc.copyWith(sum: acc.sum + 1),
-      ]);
+      state = state.copyWith(sum: state.sum + 3);
     }
   }
-}
 
-@freezed
-class SavingsAccounts with _$SavingsAccounts {
-  const factory SavingsAccounts(
-    List<Account> accounts,
-  ) = _SavingsAccounts;
-
-  const SavingsAccounts._();
-
-  int get sum => accounts.map((e) => e.sum).sum;
+  void updateWith(double sum) {
+    state = state.copyWith(sum: sum);
+  }
 }
