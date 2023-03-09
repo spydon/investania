@@ -9,12 +9,25 @@ version: 1.0.0+1
 environment:
   sdk: '>=2.19.3 <3.0.0'
 
+
 dependencies:
-  flame: ^1.6.0
+  flame:
+    git:
+      url: https://github.com/flame-engine/flame.git
+      ref: main
+      path: packages/flame
   flame_riverpod: ^4.0.0+2
   flutter:
     sdk: flutter
   flutter_riverpod: ^2.3.1
+
+dependency_overrides:
+  flame:
+    git:
+      url: https://github.com/flame-engine/flame.git
+      ref: main
+      path: packages/flame
+
 
 dev_dependencies:
   flame_lint: ^0.2.0
