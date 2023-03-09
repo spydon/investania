@@ -9,8 +9,9 @@ version: 1.0.0+1
 environment:
   sdk: '>=2.19.3 <3.0.0'
 
-
 dependencies:
+  build_runner: ^2.3.3
+  collection: ^1.17.0
   flame:
     git:
       url: https://github.com/flame-engine/flame.git
@@ -20,6 +21,9 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_riverpod: ^2.3.1
+  freezed: ^2.3.2
+  freezed_annotation: ^2.2.0
+  riverpod_annotation: ^2.0.1
 
 dependency_overrides:
   flame:
@@ -31,11 +35,26 @@ dependency_overrides:
 
 dev_dependencies:
   flame_lint: ^0.2.0
-  flutter_test:
-    sdk: flutter
+  riverpod_generator: ^2.1.2
 
 flutter:
   uses-material-design: true
 
   assets:
     - assets/images/
+    - assets/fonts/
+
+  fonts:
+    - family: asap
+      fonts:
+        - asset: assets/fonts/Asap-Regular.ttf
+        - asset: assets/fonts/Asap-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/Asap-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Asap-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Asap-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Asap-Italic.ttf
+          style: italic
