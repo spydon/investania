@@ -1,32 +1,31 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/experimental.dart';
+import 'package:flame/image_composition.dart';
 
-class Player extends SpriteAnimationGroupComponent<PlayerState>
+class Player extends SpriteAnimationComponent
     with CollisionCallbacks, HasGameReference {
   Player() : super(anchor: Anchor.center);
 
+  Future<List<Image>> get _spriteImages async {
+    final images = List.generate(43, (index) async {
+      final imagePath = 'player/run_$index.png';
+      return game.images.load(imagePath);
+    });
+
+    return Future.wait(images);
+  }
+
   @override
   Future<void> onLoad() async {
-    final textureSize = Vector2(16, 18);
-    size = textureSize * 4;
-    current = PlayerState.flying;
+    final textureSize = Vector2(113, 176);
+    size = textureSize * 1.0;
+
     position = Vector2(game.size.x / 2, game.size.y - size.y);
 
-    animations = {
-      PlayerState.flying: await SpriteAnimation.load(
-        'placeholder.png',
-        SpriteAnimationData.sequenced(
-          amount: 8,
-          stepTime: 0.15,
-          textureSize: textureSize,
-        ),
-      ),
-    };
+    final sprites = (await _spriteImages).map(Sprite.new).toList();
+    animation = SpriteAnimation.spriteList(sprites, stepTime: 0.05);
+
     add(CircleHitbox());
   }
-}
-
-enum PlayerState {
-  flying,
 }
