@@ -21,23 +21,23 @@ class Menu extends StatelessWidget {
           width: 400,
           child: Column(
             children: [
-              _menuButton(
+              _MenuButton(
                 router: router,
                 name: 'Start game',
                 routeName: 'game',
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              _menuButton(
+              _MenuButton(
                 router: router,
                 name: 'Highscore',
                 routeName: 'highscore',
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              _menuButton(
+              _MenuButton(
                 router: router,
                 name: 'About',
                 routeName: 'about',
@@ -50,8 +50,8 @@ class Menu extends StatelessWidget {
   }
 }
 
-class _menuButton extends StatelessWidget {
-  const _menuButton({
+class _MenuButton extends StatelessWidget {
+  const _MenuButton({
     super.key,
     required this.router,
     required this.name,
@@ -76,7 +76,7 @@ class _menuButton extends StatelessWidget {
           child: Center(
             child: Text(
               name,
-              style: TextStyle(color: Colors.green),
+              style: const TextStyle(color: Colors.green),
             ),
           ),
           onTap: () {
