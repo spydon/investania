@@ -10,7 +10,7 @@ class Invoice extends SpriteComponent {
   @override
   Future<void> onLoad() async {
     amount = Random().nextInt(50);
-    sprite = await Sprite.load('invoice_placeholder.jpg');
+    sprite = await Sprite.load('invoice_placeholder.png');
     size = Vector2.all(50);
     add(RectangleHitbox());
   }
