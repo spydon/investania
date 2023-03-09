@@ -5,6 +5,7 @@ import 'package:investania/src/components/input.dart';
 import 'package:investania/src/components/paycheck_component.dart';
 import 'package:investania/src/components/player.dart';
 import 'package:investania/src/components/savings_account_sum.dart';
+import 'package:investania/src/components/time.dart';
 
 class InvestaniaGame extends PositionComponent {
   late final CameraComponent camera;
@@ -22,8 +23,11 @@ class InvestaniaGame extends PositionComponent {
       PayCheckComponent(),
       ScreenHitbox(),
     ]);
+
+    // HUD
     camera.viewport.add(SavingsAccountSum());
     camera.viewport.add(AieAccountSum());
+    camera.viewport.add(Time());
   }
 
   @override
