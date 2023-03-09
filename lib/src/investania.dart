@@ -3,6 +3,7 @@ import 'package:flame/game.dart';
 import 'package:flame_riverpod/flame_riverpod.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:investania/src/investania_game.dart';
+import 'package:investania/src/screens/about.dart';
 import 'package:investania/src/screens/menu.dart';
 
 class Investania extends FlameGame
@@ -21,6 +22,11 @@ class Investania extends FlameGame
         'menu': OverlayRoute(
           (context, game) => Menu(
             context: context,
+            router: router,
+          ),
+        ),
+        'about': OverlayRoute(
+          (context, game) => About(
             router: router,
           ),
         ),
