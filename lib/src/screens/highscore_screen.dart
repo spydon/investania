@@ -3,8 +3,6 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:investania/src/investania.dart';
-import 'package:investania/src/providers/accounts/aie_account_provider.dart';
-import 'package:investania/src/providers/accounts/savings_account_provider.dart';
 
 class HighscoreEntry {
   final String name;
@@ -43,13 +41,6 @@ class Highscore extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final aie = ref.watch(aieAccountProvider).sum;
-    final savings = ref.watch(savingsProviderProvider).sum;
-
-    const missedFaktura = 1337;
-
-    final totalSavings = aie + savings; // - missedFaktura;
-
     return Material(
       child: Container(
         color: Colors.black,
@@ -83,11 +74,13 @@ class Highscore extends ConsumerWidget {
                   ],
                 ),
                 ..._highscore.mapIndexed((index, e) {
-                  return TableRow(children: [
-                    _TableCellPadded(child: Text('${index + 1}')),
-                    _TableCellPadded(child: Text(e.name)),
-                    _TableCellPadded(child: Text(e.totalSavings)),
-                  ]);
+                  return TableRow(
+                    children: [
+                      _TableCellPadded(child: Text('${index + 1}')),
+                      _TableCellPadded(child: Text(e.name)),
+                      _TableCellPadded(child: Text(e.totalSavings)),
+                    ],
+                  );
                 }),
               ],
             ),
@@ -102,17 +95,15 @@ class Highscore extends ConsumerWidget {
 
 class _TableCellPadded extends StatelessWidget {
   final Widget child;
-  final EdgeInsets? padding;
 
   const _TableCellPadded({
     required this.child,
-    this.padding,
   });
 
   @override
   TableCell build(BuildContext context) => TableCell(
         child: Padding(
-          padding: padding ?? const EdgeInsets.all(5.0),
+          padding: const EdgeInsets.all(5.0),
           child: child,
         ),
       );
