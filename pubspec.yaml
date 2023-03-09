@@ -30,16 +30,19 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/fonts/
 
   fonts:
-    - asset: assets/fonts/Asap-Regular.ttf
-    - asset: assets/fonts/Asap-Thin.ttf
-      weight: 100
-    - asset: assets/fonts/Asap-Light.ttf
-      weight: 300
-    - asset: assets/fonts/Asap-Medium.ttf
-      weight: 500
-    - asset: assets/fonts/Asap-Bold.ttf
-      weight: 700
-    - asset: assets/fonts/Asap-Italic.ttf
-      style: italic
+    - family: asap
+      fonts:
+        - asset: assets/fonts/Asap-Regular.ttf
+        - asset: assets/fonts/Asap-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/Asap-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Asap-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Asap-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Asap-Italic.ttf
+          style: italic
