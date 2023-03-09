@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:investania/src/data/account.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'savings_account_provider.freezed.dart';
@@ -11,7 +12,7 @@ class SavingsProvider extends _$SavingsProvider {
   @override
   SavingsAccounts build() {
     const savingsAccounts = [
-      _Account(0),
+      Account(0),
     ];
 
     incrementAndStuff();
@@ -32,15 +33,10 @@ class SavingsProvider extends _$SavingsProvider {
 @freezed
 class SavingsAccounts with _$SavingsAccounts {
   const factory SavingsAccounts(
-    List<_Account> accounts,
+    List<Account> accounts,
   ) = _SavingsAccounts;
 
   const SavingsAccounts._();
 
   int get sum => accounts.map((e) => e.sum).sum;
-}
-
-@freezed
-class _Account with _$_Account {
-  const factory _Account(int sum) = __Account;
 }
