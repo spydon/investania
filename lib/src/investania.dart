@@ -4,6 +4,7 @@ import 'package:flame_riverpod/flame_riverpod.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:investania/src/investania_game.dart';
 import 'package:investania/src/screens/about.dart';
+import 'package:investania/src/screens/highscore_screen.dart';
 import 'package:investania/src/screens/menu.dart';
 
 class Investania extends FlameGame
@@ -31,8 +32,15 @@ class Investania extends FlameGame
           ),
         ),
         'game': Route(InvestaniaGame.new),
+        'highscore': OverlayRoute(
+          (context, game) => Highscore(game: this),
+        )
       },
     );
     add(router);
+  }
+
+  void reset() {
+    router.pushOverlay('highscore');
   }
 }

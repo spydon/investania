@@ -12,7 +12,7 @@ class _GameApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return GameWidget.controlled(
+    return GameWidget<Investania>.controlled(
       gameFactory: () => Investania(ref),
     );
   }
