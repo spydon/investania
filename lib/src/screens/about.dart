@@ -16,9 +16,7 @@ class About extends StatelessWidget {
             width: 500,
             child: Column(
               children: const [
-                SizedBox(
-                  height: 50,
-                ),
+                SizedBox(height: 50),
                 Text(
                   'Welcome to Investania!',
                   style: TextStyle(
