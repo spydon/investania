@@ -88,8 +88,6 @@ class Highscore extends ConsumerWidget {
         ),
       ),
     );
-
-    // animation of additon of 'savings' + 'AiE'
   }
 }
 
