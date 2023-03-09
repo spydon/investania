@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Account {
-  int get sum => throw _privateConstructorUsedError;
+  double get sum => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AccountCopyWith<Account> get copyWith => throw _privateConstructorUsedError;
@@ -27,7 +27,7 @@ abstract class $AccountCopyWith<$Res> {
   factory $AccountCopyWith(Account value, $Res Function(Account) then) =
       _$AccountCopyWithImpl<$Res, Account>;
   @useResult
-  $Res call({int sum});
+  $Res call({double sum});
 }
 
 /// @nodoc
@@ -49,7 +49,7 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
       sum: null == sum
           ? _value.sum
           : sum // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
     ) as $Val);
   }
 }
@@ -61,7 +61,7 @@ abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
       __$$_AccountCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int sum});
+  $Res call({double sum});
 }
 
 /// @nodoc
@@ -80,7 +80,7 @@ class __$$_AccountCopyWithImpl<$Res>
       null == sum
           ? _value.sum
           : sum // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
     ));
   }
 }
@@ -91,7 +91,7 @@ class _$_Account implements _Account {
   const _$_Account(this.sum);
 
   @override
-  final int sum;
+  final double sum;
 
   @override
   String toString() {
@@ -117,10 +117,10 @@ class _$_Account implements _Account {
 }
 
 abstract class _Account implements Account {
-  const factory _Account(final int sum) = _$_Account;
+  const factory _Account(final double sum) = _$_Account;
 
   @override
-  int get sum;
+  double get sum;
   @override
   @JsonKey(ignore: true)
   _$$_AccountCopyWith<_$_Account> get copyWith =>

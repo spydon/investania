@@ -1,6 +1,6 @@
 import 'package:flame/components.dart';
 import 'package:flame_riverpod/flame_riverpod.dart';
-import 'package:investania/src/providers/savings_account_provider.dart';
+import 'package:investania/src/providers/accounts/savings_account_provider.dart';
 
 class SavingsAccountSum extends Component with HasComponentRef {
   late TextComponent _textComponent;

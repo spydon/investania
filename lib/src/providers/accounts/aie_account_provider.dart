@@ -7,14 +7,14 @@ part 'aie_account_provider.g.dart';
 class AieAccount extends _$AieAccount {
   @override
   Account build() {
-    incrementAndStuff();
-    return const Account(0);
+    return const Account(10000);
   }
 
-  Future<void> incrementAndStuff() async {
-    while (true) {
-      await Future<dynamic>.delayed(const Duration(seconds: 1));
-      state = state.copyWith(sum: state.sum + 3);
-    }
+  void add(double money) {
+    state = state.copyWith(sum: state.sum + money);
+  }
+
+  void updateWith(double sum) {
+    state = state.copyWith(sum: sum);
   }
 }

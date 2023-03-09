@@ -1,7 +1,7 @@
 import 'package:flame/components.dart';
 import 'package:flame/experimental.dart';
 import 'package:flame_riverpod/flame_riverpod.dart';
-import 'package:investania/src/providers/aie_account_provider.dart';
+import 'package:investania/src/providers/accounts/aie_account_provider.dart';
 
 class AieAccountSum extends Component with HasGameReference, HasComponentRef {
   late TextComponent _textComponent;
