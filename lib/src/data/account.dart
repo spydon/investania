@@ -4,5 +4,5 @@ part 'account.freezed.dart';
 
 @freezed
 class Account with _$Account {
-  const factory Account(int sum) = _Account;
+  const factory Account(double sum) = _Account;
 }
