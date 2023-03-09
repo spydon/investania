@@ -13,6 +13,6 @@ class InvestaniaGame extends PositionComponent {
     camera.viewfinder.anchor = Anchor.topLeft;
     addAll([camera, world]);
     world.add(Player());
-    camera.viewport.add(SavingsAccountSumComponent());
+    camera.viewport.add(SavingsAccountSum());
   }
 }
