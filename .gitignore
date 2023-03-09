@@ -43,6 +43,10 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+*.freezed.dart
+*.g.dart
+
+
 android
 ios
 web
