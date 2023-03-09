@@ -18,14 +18,8 @@ class Investania extends FlameGame
   @override
   Future<void> onLoad() async {
     router = RouterComponent(
-      initialRoute: 'endOfYear',
+      initialRoute: 'menu',
       routes: {
-        'endOfYear': OverlayRoute(
-          (context, game) => EndOfYear(
-            context: context,
-            router: router,
-          ),
-        ),
         'menu': OverlayRoute(
           (context, game) => Menu(
             context: context,
