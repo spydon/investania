@@ -1,6 +1,8 @@
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/experimental.dart';
 import 'package:investania/src/components/aie_account_sum.dart';
+import 'package:investania/src/components/background.dart';
 import 'package:investania/src/components/input.dart';
 import 'package:investania/src/components/paycheck_component.dart';
 import 'package:investania/src/components/player.dart';
@@ -18,6 +20,7 @@ class InvestaniaGame extends PositionComponent {
     final player = Player();
     addAll([camera, world]);
     world.addAll([
+      Background(),
       Input(player),
       player,
       PayCheckComponent(),

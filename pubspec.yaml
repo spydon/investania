@@ -42,6 +42,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/parallax/
     - assets/fonts/
 
   fonts:
