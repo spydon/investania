@@ -3,6 +3,7 @@ import 'package:flame/game.dart';
 import 'package:flame_riverpod/flame_riverpod.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:investania/src/investania_game.dart';
+import 'package:investania/src/screens/end_of_year.dart';
 import 'package:investania/src/screens/highscore_screen.dart';
 import 'package:investania/src/screens/menu.dart';
 
@@ -28,7 +29,13 @@ class Investania extends FlameGame
         'game': Route(InvestaniaGame.new),
         'highscore': OverlayRoute(
           (context, game) => Highscore(game: this),
-        )
+        ),
+        'endOfYear': OverlayRoute(
+          (context, game) => EndOfYear(
+            context: context,
+            router: router,
+          ),
+        ),
       },
     );
     add(router);
