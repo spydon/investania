@@ -11,8 +11,10 @@ environment:
 
 dependencies:
   flame: ^1.6.0
+  flame_riverpod: ^4.0.0+2
   flutter:
     sdk: flutter
+  flutter_riverpod: ^2.3.1
 
 dev_dependencies:
   flame_lint: ^0.2.0
