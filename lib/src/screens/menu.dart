@@ -52,7 +52,6 @@ class Menu extends StatelessWidget {
 
 class _MenuButton extends StatelessWidget {
   const _MenuButton({
-    super.key,
     required this.router,
     required this.name,
     required this.routeName,
