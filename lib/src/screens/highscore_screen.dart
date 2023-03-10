@@ -1,8 +1,10 @@
 import 'dart:math';
+
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:investania/src/investania.dart';
+import 'package:investania/src/providers/date_logic/time_manager.dart';
 import 'package:investania/src/widgets/button.dart';
 
 class HighscoreEntry {
@@ -71,9 +73,11 @@ class Highscore extends ConsumerWidget {
                       ),
                       children: [
                         _TableCellPadded(
-                            child: Text('Rank', textScaleFactor: 1.5)),
+                          child: Text('Rank', textScaleFactor: 1.5),
+                        ),
                         _TableCellPadded(
-                            child: Text('Name', textScaleFactor: 1.5)),
+                          child: Text('Name', textScaleFactor: 1.5),
+                        ),
                         _TableCellPadded(
                           child: Text('Savings', textScaleFactor: 1.5),
                         ),
@@ -93,7 +97,10 @@ class Highscore extends ConsumerWidget {
                 const SizedBox(height: 10),
                 Button(
                   name: 'Back',
-                  onTap: () => game.router.pushReplacementNamed('menu'),
+                  onTap: () {
+                    ref.invalidate(timeManagerProvider);
+                    game.router.pushReplacementNamed('menu');
+                  },
                 ),
               ],
             ),
