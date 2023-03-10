@@ -36,14 +36,15 @@ class InvestaniaGame extends PositionComponent
     camera.viewport.add(SavingsAccountSum());
     camera.viewport.add(AieAccountSum());
     camera.viewport.add(Time());
+  }
 
-    listen(timeManagerProvider, (oldValue, newValue) {
-      if (ref.read(timeManagerProvider.notifier).levelIsOver()) {
-        final investmentOption = ref.read(selectedInvestmentOptionProvider);
-        ref.read(savingsProvider.notifier).updateReturn(investmentOption);
-        game.router.pushReplacementNamed('endOfYear');
-      }
-    });
+  @override
+  void update(double dt) {
+    if (ref.read(timeManagerProvider.notifier).levelIsOver()) {
+      final investmentOption = ref.read(selectedInvestmentOptionProvider);
+      ref.read(savingsProvider.notifier).updateReturn(investmentOption);
+      game.router.pushReplacementNamed('endOfYear');
+    }
   }
 
   @override

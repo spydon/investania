@@ -2,11 +2,11 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'time_manager.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class TimeManager extends _$TimeManager {
   @override
   DateTime build() {
-    return DateTime(2023);
+    return DateTime(2022);
   }
 
   void startNewLevel() {
@@ -21,6 +21,6 @@ class TimeManager extends _$TimeManager {
     if (levelIsOver()) {
       return;
     }
-    state = state.add(Duration(minutes: (dt * 5000).toInt()));
+    state = state.add(Duration(minutes: (dt * 50000).toInt()));
   }
 }
