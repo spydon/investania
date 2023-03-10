@@ -10,7 +10,7 @@ class AieAccountSum extends Component with HasGameReference, HasComponentRef {
   Future<void> onLoad() async {
     add(
       _textComponent = TextComponent(
-        position: Vector2(game.size.x, 0),
+        position: Vector2(game.size.x - 4, 4),
         anchor: Anchor.topRight,
       ),
     );

@@ -16,7 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Account {
-  double get sum => throw _privateConstructorUsedError;
+  int get sum => throw _privateConstructorUsedError;
+  int get roi => throw _privateConstructorUsedError;
+  double get roiPercentage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AccountCopyWith<Account> get copyWith => throw _privateConstructorUsedError;
@@ -27,7 +29,7 @@ abstract class $AccountCopyWith<$Res> {
   factory $AccountCopyWith(Account value, $Res Function(Account) then) =
       _$AccountCopyWithImpl<$Res, Account>;
   @useResult
-  $Res call({double sum});
+  $Res call({int sum, int roi, double roiPercentage});
 }
 
 /// @nodoc
@@ -44,11 +46,21 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
   @override
   $Res call({
     Object? sum = null,
+    Object? roi = null,
+    Object? roiPercentage = null,
   }) {
     return _then(_value.copyWith(
       sum: null == sum
           ? _value.sum
           : sum // ignore: cast_nullable_to_non_nullable
+              as int,
+      roi: null == roi
+          ? _value.roi
+          : roi // ignore: cast_nullable_to_non_nullable
+              as int,
+      roiPercentage: null == roiPercentage
+          ? _value.roiPercentage
+          : roiPercentage // ignore: cast_nullable_to_non_nullable
               as double,
     ) as $Val);
   }
@@ -61,7 +73,7 @@ abstract class _$$_AccountCopyWith<$Res> implements $AccountCopyWith<$Res> {
       __$$_AccountCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({double sum});
+  $Res call({int sum, int roi, double roiPercentage});
 }
 
 /// @nodoc
@@ -75,11 +87,21 @@ class __$$_AccountCopyWithImpl<$Res>
   @override
   $Res call({
     Object? sum = null,
+    Object? roi = null,
+    Object? roiPercentage = null,
   }) {
     return _then(_$_Account(
       null == sum
           ? _value.sum
           : sum // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == roi
+          ? _value.roi
+          : roi // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == roiPercentage
+          ? _value.roiPercentage
+          : roiPercentage // ignore: cast_nullable_to_non_nullable
               as double,
     ));
   }
@@ -88,14 +110,18 @@ class __$$_AccountCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Account implements _Account {
-  const _$_Account(this.sum);
+  const _$_Account(this.sum, this.roi, this.roiPercentage);
 
   @override
-  final double sum;
+  final int sum;
+  @override
+  final int roi;
+  @override
+  final double roiPercentage;
 
   @override
   String toString() {
-    return 'Account(sum: $sum)';
+    return 'Account(sum: $sum, roi: $roi, roiPercentage: $roiPercentage)';
   }
 
   @override
@@ -103,11 +129,14 @@ class _$_Account implements _Account {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Account &&
-            (identical(other.sum, sum) || other.sum == sum));
+            (identical(other.sum, sum) || other.sum == sum) &&
+            (identical(other.roi, roi) || other.roi == roi) &&
+            (identical(other.roiPercentage, roiPercentage) ||
+                other.roiPercentage == roiPercentage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, sum);
+  int get hashCode => Object.hash(runtimeType, sum, roi, roiPercentage);
 
   @JsonKey(ignore: true)
   @override
@@ -117,10 +146,15 @@ class _$_Account implements _Account {
 }
 
 abstract class _Account implements Account {
-  const factory _Account(final double sum) = _$_Account;
+  const factory _Account(
+      final int sum, final int roi, final double roiPercentage) = _$_Account;
 
   @override
-  double get sum;
+  int get sum;
+  @override
+  int get roi;
+  @override
+  double get roiPercentage;
   @override
   @JsonKey(ignore: true)
   _$$_AccountCopyWith<_$_Account> get copyWith =>

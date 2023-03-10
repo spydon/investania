@@ -5,7 +5,7 @@ import 'package:investania/src/components/invoice.dart';
 import 'package:investania/src/components/paycheck.dart';
 
 class PickUpManager extends Component with HasGameReference, HasComponentRef {
-  final Vector2 defaultPickUpSpeed = Vector2(0, 50);
+  final Vector2 defaultPickUpSpeed = Vector2(0, 200);
   final int maxPickUpsOnScreen = 4;
   final Timer invoiceSpawnTimer = Timer(7, repeat: true);
   final Timer paycheckSpawnTimer = Timer(5, repeat: true);

@@ -19,8 +19,11 @@ class PayCheck extends SpriteComponent
 
   @override
   void update(double dt) {
-    move(dt);
     super.update(dt);
+    move(dt);
+    if (y > game.size.y) {
+      removeFromParent();
+    }
   }
 
   @override
@@ -42,8 +45,6 @@ class PayCheck extends SpriteComponent
     if (other is Player) {
       removeFromParent();
       ref.read(aieAccountProvider.notifier).add(randomAmount);
-    } else if (other is ScreenHitbox) {
-      removeFromParent();
     }
   }
 

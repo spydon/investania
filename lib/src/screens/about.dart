@@ -39,7 +39,7 @@ class About extends StatelessWidget {
                       const SizedBox(height: 25),
                       const Text(
                         'Hopefully you will learn something, but at the '
-                        'very least we hope you will have a tone of fun',
+                        'very least we hope you will have a lot of fun.',
                       ),
                       const SizedBox(height: 25),
                       const Text(
@@ -47,15 +47,17 @@ class About extends StatelessWidget {
                         ' the arrow keys to catch paychecks. You also need'
                         ' to catch the invoices because all of them will have'
                         ' a due date and need to be paid in time. If they are'
-                        ' not paid, you probably know what happens ;)',
+                        ' not paid, you probably know what happens. ;)',
                       ),
                       const SizedBox(height: 25),
                       const Text(
                         'Each month you will have the opportunity to choose how'
                         ' to invest any money you have left after paying your'
-                        ' expenses. You have one year to place your money as'
-                        ' wisely as you possibly can. When the year is over'
-                        ' you will find out how you did.',
+                        ' expenses. Each level is one year to place your money'
+                        ' so place your money as wisely as you possibly can.'
+                        ' When the year is over you will find out how much'
+                        ' money you managed to make during the round and what'
+                        ' your return of investment was.',
                       ),
                       const SizedBox(height: 25),
                       const Text(
