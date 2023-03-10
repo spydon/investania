@@ -1,5 +1,6 @@
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flame_riverpod/flame_riverpod.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:investania/src/investania_game.dart';
@@ -19,14 +20,20 @@ class Investania extends FlameGame
 
   @override
   Future<void> onLoad() async {
+    FlameAudio.bgm.initialize();
     router = RouterComponent(
       initialRoute: 'menu',
       routes: {
         'menu': OverlayRoute(
-          (context, game) => Menu(
-            context: context,
-            router: router,
-          ),
+          (context, game) {
+            FlameAudio.bgm
+                .stop()
+                .then((value) => FlameAudio.bgm.play('cream.mp3'));
+            return Menu(
+              context: context,
+              router: router,
+            );
+          },
         ),
         'about': OverlayRoute(
           (context, game) => About(
@@ -44,10 +51,15 @@ class Investania extends FlameGame
           ),
         ),
         'endOfYear': OverlayRoute(
-          (context, game) => EndOfYear(
-            context: context,
-            router: router,
-          ),
+          (context, game) {
+            FlameAudio.bgm
+                .stop()
+                .then((value) => FlameAudio.bgm.play('cream.mp3'));
+            return EndOfYear(
+              context: context,
+              router: router,
+            );
+          },
         ),
       },
     );

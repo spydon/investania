@@ -1,8 +1,17 @@
 import 'package:flame/components.dart';
 import 'package:flame/parallax.dart';
+import 'package:flame_audio/flame_audio.dart';
 
 class Background extends ParallaxComponent {
   Background();
+
+  @override
+  void onMount() {
+    FlameAudio.bgm
+        .stop()
+        .then((value) => FlameAudio.bgm.play('background_music.mp3'));
+    super.onMount();
+  }
 
   @override
   Future<void> onLoad() async {
