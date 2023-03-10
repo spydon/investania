@@ -16,7 +16,7 @@ class AieAccountSum extends Component with HasGameReference, HasComponentRef {
     );
 
     listen(aieAccountProvider, (oldValue, newValue) {
-      _textComponent.text = 'AIE: ${newValue.sum.toInt()} Kr';
+      _textComponent.text = 'AIE: ${newValue.sum} Kr';
     });
   }
 }

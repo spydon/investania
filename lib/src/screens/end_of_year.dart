@@ -46,11 +46,11 @@ class EndOfYear extends ConsumerWidget {
                   style: textStyle,
                 ),
                 Text(
-                  'Savings account: ${savings.sum.toInt()}',
+                  'Savings account: ${savings.sum}',
                   style: textStyle,
                 ),
                 Text(
-                  'Spending account: ${account.sum.toInt()}',
+                  'Spending account: ${account.sum}',
                   style: textStyle,
                 ),
                 Text(

@@ -1,4 +1,5 @@
 import 'dart:math';
+
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -72,9 +73,11 @@ class Highscore extends ConsumerWidget {
                       ),
                       children: [
                         _TableCellPadded(
-                            child: Text('Rank', textScaleFactor: 1.5)),
+                          child: Text('Rank', textScaleFactor: 1.5),
+                        ),
                         _TableCellPadded(
-                            child: Text('Name', textScaleFactor: 1.5)),
+                          child: Text('Name', textScaleFactor: 1.5),
+                        ),
                         _TableCellPadded(
                           child: Text('Savings', textScaleFactor: 1.5),
                         ),
