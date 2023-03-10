@@ -5,6 +5,7 @@ part 'aie_account_provider.g.dart';
 
 @Riverpod(keepAlive: true)
 class AieAccount extends _$AieAccount {
+  int deductables = 0;
   @override
   Account build() {
     return const Account(10000, 0, 0);
@@ -20,5 +21,9 @@ class AieAccount extends _$AieAccount {
 
   void updateWith(int sum) {
     state = state.copyWith(sum: sum);
+  }
+
+  void setDeductable(int sum) {
+    deductables = sum;
   }
 }

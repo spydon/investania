@@ -22,6 +22,7 @@ class EndOfYear extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final savings = ref.watch(savingsProvider);
     final account = ref.watch(aieAccountProvider);
+    final accountNotifier = ref.watch(aieAccountProvider.notifier);
     final isGameOver =
         ref.watch(timeManagerProvider).year == 2026 || account.sum < 0;
     final investmentOption = ref.watch(selectedInvestmentOptionProvider);
@@ -48,6 +49,10 @@ class EndOfYear extends ConsumerWidget {
                 ),
                 Text(
                   'Savings account: ${savings.sum.currency}',
+                  style: textStyle,
+                ),
+                Text(
+                  'Missed invoices: ${accountNotifier.deductables}',
                   style: textStyle,
                 ),
                 Text(
@@ -78,6 +83,7 @@ class EndOfYear extends ConsumerWidget {
                       Button(
                         name: 'Next year!',
                         onTap: () {
+                          accountNotifier.setDeductable(0);
                           router.pushReplacementNamed('setSavingsOptions');
                         },
                       ),
