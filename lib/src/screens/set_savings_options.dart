@@ -26,6 +26,9 @@ class SetSavingsOptions extends ConsumerWidget {
     final max = savings.sum + account.sum;
     const textStyle = TextStyle(color: Colors.green);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.dark,
       home: Material(
         color: Colors.transparent,
         child: Center(

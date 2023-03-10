@@ -24,11 +24,14 @@ class EndOfYear extends ConsumerWidget {
     final savings = ref.watch(savingsProvider);
     final account = ref.watch(aieAccountProvider);
     final isGameOver =
-        ref.watch(timeManagerProvider).year == 2026 || account.sum < 0;
+        ref.watch(timeManagerProvider).year == 2025 || account.sum < 0;
     final investmentOption = ref.watch(selectedInvestmentOptionProvider);
     final total = savings.sum + account.sum;
     const textStyle = TextStyle(color: Colors.green);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.dark,
       home: Material(
         color: Colors.transparent,
         child: Center(
