@@ -3,7 +3,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'aie_account_provider.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class AieAccount extends _$AieAccount {
   @override
   Account build() {

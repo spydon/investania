@@ -6,12 +6,11 @@ part of 'aie_account_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$aieAccountHash() => r'09ff318550d36e33db82340fecbd8d5a2a636f63';
+String _$aieAccountHash() => r'afbd32a19f45e276631fc870bb86ed8a31e610da';
 
 /// See also [AieAccount].
 @ProviderFor(AieAccount)
-final aieAccountProvider =
-    AutoDisposeNotifierProvider<AieAccount, Account>.internal(
+final aieAccountProvider = NotifierProvider<AieAccount, Account>.internal(
   AieAccount.new,
   name: r'aieAccountProvider',
   debugGetCreateSourceHash:
@@ -20,5 +19,5 @@ final aieAccountProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$AieAccount = AutoDisposeNotifier<Account>;
+typedef _$AieAccount = Notifier<Account>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions

@@ -1,6 +1,7 @@
 import 'package:flame/components.dart';
 import 'package:flame/experimental.dart';
 import 'package:flame_riverpod/flame_riverpod.dart';
+import 'package:investania/src/extensions/num_extensions.dart';
 import 'package:investania/src/providers/accounts/aie_account_provider.dart';
 
 class AieAccountSum extends Component with HasGameReference, HasComponentRef {
@@ -16,7 +17,7 @@ class AieAccountSum extends Component with HasGameReference, HasComponentRef {
     );
 
     listen(aieAccountProvider, (oldValue, newValue) {
-      _textComponent.text = 'AIE: ${newValue.sum} Kr';
+      _textComponent.text = 'AIE: ${newValue.sum.currency}';
     });
   }
 }

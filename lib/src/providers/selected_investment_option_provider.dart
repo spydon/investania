@@ -4,7 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'selected_investment_option_provider.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class SelectedInvestmentOption extends _$SelectedInvestmentOption {
   @override
   InvestmentOption build() => InvestmentOption.interest;
@@ -33,13 +33,13 @@ enum InvestmentOption {
         return 0.02;
       case InvestmentOption.highriskStock:
         // Between -20% and 20%.
-        return _rng.nextDouble() * 20 * (_rng.nextBool() ? 1 : -1);
+        return _rng.nextDouble() * 20 * (_rng.nextBool() ? 1 : -1) / 100;
       case InvestmentOption.lowriskStock:
         // Between -10% and 10%.
-        return _rng.nextDouble() * 10 * (_rng.nextBool() ? 1 : -1);
+        return _rng.nextDouble() * 10 * (_rng.nextBool() ? 1 : -1) / 100;
       case InvestmentOption.fundAccount:
         // Between -5% and 5%.
-        return _rng.nextDouble() * 5 * (_rng.nextBool() ? 1 : -1);
+        return _rng.nextDouble() * 5 * (_rng.nextBool() ? 1 : -1) / 100;
     }
   }
 

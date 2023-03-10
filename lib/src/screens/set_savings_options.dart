@@ -1,6 +1,7 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:investania/src/extensions/num_extensions.dart';
 import 'package:investania/src/providers/accounts/aie_account_provider.dart';
 import 'package:investania/src/providers/accounts/savings_account_provider.dart';
 import 'package:investania/src/providers/date_logic/time_manager.dart';
@@ -40,7 +41,7 @@ class SetSavingsOptions extends ConsumerWidget {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  'Total: $max',
+                  'Total: ${max.currency}',
                   style: textStyle,
                 ),
                 Row(
@@ -53,7 +54,7 @@ class SetSavingsOptions extends ConsumerWidget {
                           style: textStyle,
                         ),
                         Text(
-                          savings.sum.toString(),
+                          savings.sum.currency,
                           style: textStyle,
                         ),
                       ],
@@ -78,7 +79,7 @@ class SetSavingsOptions extends ConsumerWidget {
                           style: TextStyle(color: Colors.green),
                         ),
                         Text(
-                          account.sum.toString(),
+                          account.sum.currency,
                           style: const TextStyle(color: Colors.green),
                         ),
                       ],
