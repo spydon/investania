@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:investania/src/providers/accounts/aie_account_provider.dart';
 import 'package:investania/src/providers/accounts/savings_account_provider.dart';
+import 'package:investania/src/providers/date_logic/time_manager.dart';
 import 'package:investania/src/providers/selected_investment_option_provider.dart';
 import 'package:investania/src/widgets/button.dart';
 
@@ -142,6 +143,7 @@ class SetSavingsOptions extends ConsumerWidget {
                     Button(
                       name: "Let's go!",
                       onTap: () {
+                        ref.read(timeManagerProvider.notifier).startNewLevel();
                         router.pushReplacementNamed('game');
                       },
                     ),

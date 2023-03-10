@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:investania/src/providers/accounts/aie_account_provider.dart';
 import 'package:investania/src/providers/accounts/savings_account_provider.dart';
+import 'package:investania/src/providers/date_logic/time_manager.dart';
 import 'package:investania/src/providers/selected_investment_option_provider.dart';
 import 'package:investania/src/widgets/button.dart';
 
@@ -20,6 +21,8 @@ class EndOfYear extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final savings = ref.watch(savingsProvider);
     final account = ref.watch(aieAccountProvider);
+    final isGameOver =
+        ref.watch(timeManagerProvider).year == 2026 || account.sum < 0;
     final investmentOption = ref.watch(selectedInvestmentOptionProvider);
     final max = savings.sum + account.sum;
     const textStyle = TextStyle(color: Colors.green);
@@ -34,7 +37,7 @@ class EndOfYear extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'End of year summary',
+                  'End of ${isGameOver ? 'game' : 'year'} summary',
                   style: textStyle.copyWith(fontSize: 30),
                 ),
                 const SizedBox(height: 20),
@@ -63,12 +66,20 @@ class EndOfYear extends ConsumerWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Button(
-                      name: 'Next year!',
-                      onTap: () {
-                        router.pushReplacementNamed('setSavingsOptions');
-                      },
-                    ),
+                    if (isGameOver)
+                      Button(
+                        name: 'See highscore',
+                        onTap: () {
+                          router.pushReplacementNamed('highscore');
+                        },
+                      )
+                    else
+                      Button(
+                        name: 'Next year!',
+                        onTap: () {
+                          router.pushReplacementNamed('setSavingsOptions');
+                        },
+                      ),
                   ],
                 ),
               ],
