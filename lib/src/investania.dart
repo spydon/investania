@@ -47,8 +47,9 @@ class Investania extends FlameGame
         ),
         'endOfYear': OverlayRoute(
           (context, game) {
-            FlameAudio.bgm.stop();
-            FlameAudio.bgm.play('cream.mp3');
+            FlameAudio.bgm
+                .stop()
+                .then((value) => FlameAudio.bgm.play('cream.mp3'));
             return EndOfYear(
               context: context,
               router: router,
@@ -58,12 +59,6 @@ class Investania extends FlameGame
       },
     );
     add(router);
-  }
-
-  @override
-  void onRemove() {
-    FlameAudio.bgm.dispose();
-    super.onRemove();
   }
 
   void reset() {

@@ -1,6 +1,5 @@
 import 'package:flame/components.dart';
 import 'package:flame/experimental.dart';
-import 'package:flame_audio/flame_audio.dart';
 import 'package:flame_riverpod/flame_riverpod.dart';
 import 'package:investania/src/components/aie_account_sum.dart';
 import 'package:investania/src/components/background.dart';
@@ -21,8 +20,6 @@ class InvestaniaGame extends PositionComponent
 
   @override
   Future<void> onLoad() async {
-    FlameAudio.bgm.stop();
-    FlameAudio.bgm.play('background_music.mp3');
     camera = CameraComponent(world: world);
     camera.viewfinder.anchor = Anchor.topLeft;
     final player = Player();
@@ -46,7 +43,7 @@ class InvestaniaGame extends PositionComponent
     if (ref.read(timeManagerProvider.notifier).levelIsOver()) {
       final investmentOption = ref.read(selectedInvestmentOptionProvider);
       ref.read(savingsProvider.notifier).updateReturn(investmentOption);
-      FlameAudio.bgm.stop();
+
       game.router.pushReplacementNamed('endOfYear');
     }
   }
