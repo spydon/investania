@@ -18,7 +18,7 @@ class EndOfYear extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final savings = ref.watch(savingsProviderProvider);
+    final savings = ref.watch(savingsProvider);
     final account = ref.watch(aieAccountProvider);
     final investmentOption = ref.watch(selectedInvestmentOptionProvider);
     final max = savings.sum + account.sum;
@@ -34,7 +34,7 @@ class EndOfYear extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'End of year!',
+                  'End of year summary',
                   style: textStyle.copyWith(fontSize: 30),
                 ),
                 const SizedBox(height: 20),
@@ -42,97 +42,22 @@ class EndOfYear extends ConsumerWidget {
                   'Total: $max',
                   style: textStyle,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Column(
-                      children: [
-                        const Text(
-                          'Savings account',
-                          style: textStyle,
-                        ),
-                        Text(
-                          savings.sum.toInt().toString(),
-                          style: textStyle,
-                        ),
-                      ],
-                    ),
-                    Slider(
-                      value: savings.sum,
-                      max: max,
-                      onChanged: (savingsTotal) {
-                        ref
-                            .read(savingsProviderProvider.notifier)
-                            .updateWith(savingsTotal);
-                        ref
-                            .read(aieAccountProvider.notifier)
-                            .updateWith(max - savingsTotal);
-                      },
-                    ),
-                    Column(
-                      children: [
-                        const Text(
-                          'Spending account',
-                          style: TextStyle(color: Colors.green),
-                        ),
-                        Text(
-                          account.sum.toInt().toString(),
-                          style: const TextStyle(color: Colors.green),
-                        ),
-                      ],
-                    ),
-                  ],
+                Text(
+                  'Savings account: ${savings.sum.toInt()}',
+                  style: textStyle,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Button(
-                      name: 'Interest account 2%',
-                      onTap: () {
-                        ref
-                            .read(selectedInvestmentOptionProvider.notifier)
-                            .set(InvestmentOption.interest);
-                      },
-                    ),
-                    Button(
-                      name: 'Fund account',
-                      onTap: () {
-                        ref
-                            .read(selectedInvestmentOptionProvider.notifier)
-                            .set(InvestmentOption.fundAccount);
-                      },
-                    ),
-                  ],
+                Text(
+                  'Spending account: ${account.sum.toInt()}',
+                  style: textStyle,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Button(
-                      name: 'High risk stocks',
-                      onTap: () {
-                        ref
-                            .read(selectedInvestmentOptionProvider.notifier)
-                            .set(InvestmentOption.highriskStock);
-                      },
-                    ),
-                    Button(
-                      name: 'Low risk stocks',
-                      onTap: () {
-                        ref
-                            .read(selectedInvestmentOptionProvider.notifier)
-                            .set(InvestmentOption.lowriskStock);
-                      },
-                    ),
-                  ],
+                Text(
+                  'Investment strategy: $investmentOption',
+                  style: textStyle,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'You have selected the $investmentOption',
-                      style: textStyle,
-                    ),
-                  ],
+                Text(
+                  'Return on investment: '
+                  '${savings.roi} (${savings.roiPercentage * 100}%)',
+                  style: textStyle,
                 ),
                 const SizedBox(height: 20),
                 Row(
@@ -141,7 +66,7 @@ class EndOfYear extends ConsumerWidget {
                     Button(
                       name: 'Next year!',
                       onTap: () {
-                        router.pushReplacementNamed('game');
+                        router.pushReplacementNamed('setSavingsOptions');
                       },
                     ),
                   ],

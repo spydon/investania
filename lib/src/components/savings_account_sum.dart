@@ -8,10 +8,10 @@ class SavingsAccountSum extends Component with HasComponentRef {
   @override
   Future<void> onLoad() async {
     add(
-      _textComponent = TextComponent(),
+      _textComponent = TextComponent(position: Vector2.all(4)),
     );
 
-    listen(savingsProviderProvider, (oldValue, newValue) {
+    listen(savingsProvider, (oldValue, newValue) {
       _textComponent.text = 'Sparkonto: ${newValue.sum}';
     });
   }
