@@ -92,6 +92,9 @@ class Highscore extends ConsumerWidget {
                           _TableCellPadded(child: Text('${index + 1}')),
                           _TableCellPadded(child: Text(e.name)),
                           _TableCellPadded(child: Text(e.totalSavings)),
+                          _TableCellPadded(
+                            child: Text('${e.totalSavings.currency}kr'),
+                          ),
                         ],
                       );
                     }),
