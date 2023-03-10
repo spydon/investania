@@ -3,6 +3,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:investania/src/investania.dart';
+import 'package:investania/src/widgets/button.dart';
 
 class HighscoreEntry {
   final String name;
@@ -49,39 +50,51 @@ class Highscore extends ConsumerWidget {
         child: DefaultTextStyle(
           style: const TextStyle(
             color: Colors.green,
-            height: 1.2, //SETTING THIS CAN SOLVE YOUR PROBLEM
+            height: 1.2,
             fontSize: 14,
           ),
           child: Padding(
             padding: const EdgeInsets.all(35.0),
-            child: Table(
-              columnWidths: const {
-                0: FlexColumnWidth(),
-              },
-              defaultColumnWidth: const FlexColumnWidth(4),
-              border: TableBorder.all(width: 2.0, color: Colors.green),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const TableRow(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
-                  ),
+                Table(
+                  columnWidths: const {
+                    0: FlexColumnWidth(),
+                  },
+                  defaultColumnWidth: const FlexColumnWidth(4),
+                  border: TableBorder.all(width: 2.0, color: Colors.green),
                   children: [
-                    _TableCellPadded(child: Text('Rank', textScaleFactor: 1.5)),
-                    _TableCellPadded(child: Text('Name', textScaleFactor: 1.5)),
-                    _TableCellPadded(
-                      child: Text('Savings', textScaleFactor: 1.5),
+                    const TableRow(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(8)),
+                      ),
+                      children: [
+                        _TableCellPadded(
+                            child: Text('Rank', textScaleFactor: 1.5)),
+                        _TableCellPadded(
+                            child: Text('Name', textScaleFactor: 1.5)),
+                        _TableCellPadded(
+                          child: Text('Savings', textScaleFactor: 1.5),
+                        ),
+                      ],
                     ),
+                    ..._highscore.mapIndexed((index, e) {
+                      return TableRow(
+                        children: [
+                          _TableCellPadded(child: Text('${index + 1}')),
+                          _TableCellPadded(child: Text(e.name)),
+                          _TableCellPadded(child: Text(e.totalSavings)),
+                        ],
+                      );
+                    }),
                   ],
                 ),
-                ..._highscore.mapIndexed((index, e) {
-                  return TableRow(
-                    children: [
-                      _TableCellPadded(child: Text('${index + 1}')),
-                      _TableCellPadded(child: Text(e.name)),
-                      _TableCellPadded(child: Text(e.totalSavings)),
-                    ],
-                  );
-                }),
+                const SizedBox(height: 10),
+                Button(
+                  name: 'Back',
+                  onTap: () => game.router.pushReplacementNamed('menu'),
+                ),
               ],
             ),
           ),

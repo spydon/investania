@@ -58,16 +58,16 @@ class SetSavingsOptions extends ConsumerWidget {
                       ],
                     ),
                     Slider(
-                      value: savings.sum.toDouble(),
+                      value: account.sum.toDouble(),
                       activeColor: Colors.green,
                       max: max.toDouble(),
                       onChanged: (savingsTotal) {
                         ref
                             .read(savingsProvider.notifier)
-                            .updateWith(savingsTotal.round());
+                            .updateWith(max - savingsTotal.round());
                         ref
                             .read(aieAccountProvider.notifier)
-                            .updateWith(max - savingsTotal.round());
+                            .updateWith(savingsTotal.round());
                       },
                     ),
                     Column(
@@ -77,7 +77,7 @@ class SetSavingsOptions extends ConsumerWidget {
                           style: TextStyle(color: Colors.green),
                         ),
                         Text(
-                          account.sum.toInt().toString(),
+                          account.sum.toString(),
                           style: const TextStyle(color: Colors.green),
                         ),
                       ],
