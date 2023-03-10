@@ -24,11 +24,17 @@ class EndOfYear extends ConsumerWidget {
     final savings = ref.watch(savingsProvider);
     final account = ref.watch(aieAccountProvider);
     final isGameOver =
-        ref.watch(timeManagerProvider).year == 2026 || account.sum < 0;
+        ref.watch(timeManagerProvider).year == 2025 || account.sum < 0;
     final investmentOption = ref.watch(selectedInvestmentOptionProvider);
     final total = savings.sum + account.sum;
     const textStyle = TextStyle(color: Colors.green);
+    final roiPercent = (savings.roiPercentage * 100).toStringAsFixed(2);
+
     return MaterialApp(
+      useInheritedMediaQuery: true,
+      debugShowCheckedModeBanner: false,
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.dark,
       home: Material(
         color: Colors.transparent,
         child: Center(
@@ -61,7 +67,7 @@ class EndOfYear extends ConsumerWidget {
                 ),
                 Text(
                   'Return on investment: '
-                  '${savings.roi} (${savings.roiPercentage * 100}%)',
+                  '${savings.roi} ($roiPercent%)',
                   style: textStyle,
                 ),
                 const SizedBox(height: 20),
