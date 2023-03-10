@@ -3,19 +3,20 @@ import 'dart:math';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flame/effects.dart';
 import 'package:flame/experimental.dart';
 import 'package:flame_riverpod/flame_riverpod.dart';
 import 'package:investania/src/components/player.dart';
 import 'package:investania/src/data/pickup.dart';
 import 'package:investania/src/providers/accounts/aie_account_provider.dart';
 
-class PayCheck extends SpriteComponent
+class PayCheck extends SpriteAnimationComponent
     with HasGameReference, CollisionCallbacks, HasComponentRef, PickUp {
   late final double amount;
   final _random = Random();
   final Vector2 movementSpeed;
 
-  PayCheck(this.movementSpeed);
+  PayCheck(this.movementSpeed) : super(anchor: Anchor.center);
 
   @override
   void update(double dt) {
@@ -28,10 +29,25 @@ class PayCheck extends SpriteComponent
 
   @override
   Future<void> onLoad() async {
-    sprite = await Sprite.load('paycheck_placeholder.jpeg');
-    size = Vector2.all(componentSize);
+    final imagesList = await Future.wait(
+      List.generate(30, (index) async {
+        final imagePath = 'money/Gold_${index + 1}.png';
+        return game.images.load(imagePath);
+      }),
+    );
+    final images = imagesList + imagesList.reversed.toList();
+
+    final sprites = images.map(Sprite.new).toList();
+    animation = SpriteAnimation.spriteList(sprites, stepTime: 0.1);
+    size = Vector2.all(componentSize / 2);
     position = Vector2(_random.nextDouble() * game.size.x - componentSize, 0);
-    add(RectangleHitbox());
+    add(CircleHitbox());
+    add(
+      ScaleEffect.by(
+        Vector2.all(1.5),
+        EffectController(duration: 0.5, infinite: true, alternate: true),
+      ),
+    );
 
     return super.onLoad();
   }
