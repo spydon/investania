@@ -7,6 +7,7 @@ import 'package:investania/src/screens/about.dart';
 import 'package:investania/src/screens/end_of_year.dart';
 import 'package:investania/src/screens/high_score_screen.dart';
 import 'package:investania/src/screens/menu.dart';
+import 'package:investania/src/screens/pause.dart';
 import 'package:investania/src/screens/set_savings_options.dart';
 
 class Investania extends FlameGame
@@ -37,6 +38,10 @@ class Investania extends FlameGame
         'highscore': OverlayRoute(
           (context, game) => HighScore(game: this),
         ),
+        'pause': OverlayRoute((context, game) {
+          game.pauseEngine();
+          return Pause(game, router);
+        }),
         'setSavingsOptions': OverlayRoute(
           (context, game) => SetSavingsOptions(
             context: context,

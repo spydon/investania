@@ -26,7 +26,7 @@ class InvestaniaGame extends PositionComponent
     addAll([camera, world]);
     world.addAll([
       Background(),
-      Input(player),
+      Input(player, game.router),
       player,
       ScreenHitbox(),
       PickUpManager(),

@@ -1,11 +1,13 @@
 import 'package:flame/components.dart';
+import 'package:flame/src/components/router_component.dart';
 import 'package:flutter/services.dart';
 import 'package:investania/src/components/player.dart';
 
 class Input extends Component {
-  Input(this.player);
+  Input(this.player, this.router);
 
   final Player player;
+  final RouterComponent router;
   late final KeyboardListenerComponent keyboard;
 
   @override
@@ -27,6 +29,10 @@ class Input extends Component {
           },
           LogicalKeyboardKey.arrowDown: (keys) {
             player.direction.y = 1;
+            return true;
+          },
+          LogicalKeyboardKey.escape: (keys) {
+            router.pushNamed('pause');
             return true;
           },
         },
