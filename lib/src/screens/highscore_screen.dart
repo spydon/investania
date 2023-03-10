@@ -24,7 +24,7 @@ class Highscore extends ConsumerWidget {
   final Investania game;
   late final List<HighscoreEntry> _highscore;
 
-  const Highscore({
+  Highscore({
     super.key,
     required this.game,
   }) {
@@ -93,7 +93,7 @@ class Highscore extends ConsumerWidget {
                           _TableCellPadded(child: Text(e.name)),
                           _TableCellPadded(child: Text(e.totalSavings)),
                           _TableCellPadded(
-                            child: Text('${e.totalSavings.currency}kr'),
+                            child: Text('${e.totalSavings}kr'),
                           ),
                         ],
                       );
