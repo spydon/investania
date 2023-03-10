@@ -4,7 +4,7 @@ import 'package:flame_riverpod/flame_riverpod.dart';
 import 'package:investania/src/components/aie_account_sum.dart';
 import 'package:investania/src/components/background.dart';
 import 'package:investania/src/components/input.dart';
-import 'package:investania/src/components/paycheck_component.dart';
+import 'package:investania/src/components/pickup_manager.dart';
 import 'package:investania/src/components/player.dart';
 import 'package:investania/src/components/savings_account_sum.dart';
 import 'package:investania/src/components/time.dart';
@@ -28,8 +28,8 @@ class InvestaniaGame extends PositionComponent
       Background(),
       Input(player),
       player,
-      PayCheckComponent(),
       ScreenHitbox(),
+      PickUpManager(),
     ]);
 
     // HUD

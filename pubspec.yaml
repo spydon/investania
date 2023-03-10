@@ -43,6 +43,7 @@ flutter:
   assets:
     - assets/images/
     - assets/images/parallax/
+    - assets/images/player/
     - assets/fonts/
 
   fonts:
@@ -59,3 +60,4 @@ flutter:
           weight: 700
         - asset: assets/fonts/Asap-Italic.ttf
           style: italic
+    

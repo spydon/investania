@@ -14,6 +14,10 @@ class AieAccount extends _$AieAccount {
     state = state.copyWith(sum: state.sum + money);
   }
 
+  void remove(int money) {
+    state = state.copyWith(sum: state.sum - money);
+  }
+
   void updateWith(int sum) {
     state = state.copyWith(sum: sum);
   }
