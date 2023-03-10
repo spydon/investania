@@ -21,6 +21,6 @@ class TimeManager extends _$TimeManager {
     if (levelIsOver()) {
       return;
     }
-    state = state.add(Duration(minutes: (dt * 50000).toInt()));
+    state = state.add(Duration(minutes: (dt * 5000).toInt()));
   }
 }
