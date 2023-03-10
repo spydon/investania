@@ -38,7 +38,7 @@ class Menu extends StatelessWidget {
                 onTap: () => router.pushReplacementNamed('setSavingsOptions'),
               ),
               Button(
-                name: 'Highscore',
+                name: 'High score',
                 onTap: () => router.pushReplacementNamed('highscore'),
               ),
               Button(
