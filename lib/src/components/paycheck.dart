@@ -6,7 +6,6 @@ import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame/experimental.dart';
 import 'package:flame_riverpod/flame_riverpod.dart';
-import 'package:flutter/animation.dart';
 import 'package:investania/src/components/player.dart';
 import 'package:investania/src/data/pickup.dart';
 import 'package:investania/src/providers/accounts/aie_account_provider.dart';
