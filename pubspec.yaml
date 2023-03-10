@@ -44,6 +44,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/money/
     - assets/images/parallax/
     - assets/images/player/
     - assets/fonts/
