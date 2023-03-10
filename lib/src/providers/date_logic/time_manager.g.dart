@@ -6,7 +6,7 @@ part of 'time_manager.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$timeManagerHash() => r'57be405fe4bde0d263f3916f7b487e8729fc1a68';
+String _$timeManagerHash() => r'aa402cd6e282297833870fbc90a609ce6bd69b6a';
 
 /// See also [TimeManager].
 @ProviderFor(TimeManager)
