@@ -24,7 +24,7 @@ class Highscore extends ConsumerWidget {
   final Investania game;
   late final List<HighscoreEntry> _highscore;
 
-  Highscore({
+  const Highscore({
     super.key,
     required this.game,
   }) {
