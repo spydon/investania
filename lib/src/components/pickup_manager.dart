@@ -38,8 +38,8 @@ class PickUpManager extends Component with HasGameReference, HasComponentRef {
   void update(double dt) {
     if (ref.read(timeManagerProvider.notifier).levelIsOver()) {
       ref.read(aieAccountProvider.notifier)
-        ..updateWith(-200 * delayedInvoicePool.length)
-        ..setDeductable(-200 * delayedInvoicePool.length);
+        ..remove(-500 * delayedInvoicePool.length)
+        ..setDeductable(-500 * delayedInvoicePool.length);
     }
 
     super.update(dt);
@@ -108,8 +108,11 @@ class PickUpManager extends Component with HasGameReference, HasComponentRef {
   void _invoiceSpawner() {
     Invoice invoice;
     if (invoicePool.length < 12) {
-      invoicePool.add(Invoice(defaultPickUpSpeed)
-        ..dueDate = ref.read(timeManagerProvider).add(Duration(days: 30)));
+      invoicePool.add(
+        Invoice(defaultPickUpSpeed)
+          ..dueDate =
+              ref.read(timeManagerProvider).add(const Duration(days: 30)),
+      );
 
       invoice = invoicePool.last;
     } else {
