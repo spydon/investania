@@ -21,7 +21,7 @@ class Invoice extends SpriteComponent
   @override
   Future<void> onLoad() async {
     final random = Random();
-    sprite = await Sprite.load('invoice_placeholder.jpg');
+    sprite = await Sprite.load('invoice_icon.png');
     size = Vector2.all(componentSize);
     position = Vector2(random.nextDouble() * game.size.x - componentSize, 0);
 
