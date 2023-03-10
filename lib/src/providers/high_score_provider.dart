@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:collection/collection.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -12,17 +10,17 @@ part 'high_score_provider.g.dart';
 class HighScore extends _$HighScore {
   @override
   List<HighScoreEntry> build() {
-    return List.generate(20, (index) {
-      const max = 1000000;
-      const min = -11;
+    return const [];
+  }
 
-      final totalSavings = Random().nextInt(max) + min;
-
-      return HighScoreEntry(
-        name: 'Player $index',
-        totalSavings: totalSavings,
-      );
-    })
+  void addHighScore(String name, int total) {
+    state = state.toList()
+      ..add(
+        HighScoreEntry(
+          name: name,
+          totalSavings: total,
+        ),
+      )
       ..sortByCompare((e) => e.totalSavings, (e1, e2) => e2.compareTo(e1));
   }
 }

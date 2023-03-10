@@ -6,7 +6,7 @@ part of 'high_score_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$highScoreHash() => r'df985c23c4c84dbd39947370fda59379aa934546';
+String _$highScoreHash() => r'7b6675c8d6080c20d7cc5d4a62905a5509e8d15f';
 
 /// See also [HighScore].
 @ProviderFor(HighScore)

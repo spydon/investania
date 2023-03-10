@@ -5,6 +5,7 @@ import 'package:investania/src/extensions/num_extensions.dart';
 import 'package:investania/src/providers/accounts/aie_account_provider.dart';
 import 'package:investania/src/providers/accounts/savings_account_provider.dart';
 import 'package:investania/src/providers/date_logic/time_manager.dart';
+import 'package:investania/src/providers/high_score_provider.dart';
 import 'package:investania/src/providers/selected_investment_option_provider.dart';
 import 'package:investania/src/widgets/button.dart';
 
@@ -23,9 +24,9 @@ class EndOfYear extends ConsumerWidget {
     final savings = ref.watch(savingsProvider);
     final account = ref.watch(aieAccountProvider);
     final isGameOver =
-        ref.watch(timeManagerProvider).year == 2024 || account.sum < 0;
+        ref.watch(timeManagerProvider).year == 2026 || account.sum < 0;
     final investmentOption = ref.watch(selectedInvestmentOptionProvider);
-    final max = savings.sum + account.sum;
+    final total = savings.sum + account.sum;
     const textStyle = TextStyle(color: Colors.green);
     return MaterialApp(
       home: Material(
@@ -43,7 +44,7 @@ class EndOfYear extends ConsumerWidget {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  'Total: ${max.currency}',
+                  'Total: ${total.currency}',
                   style: textStyle,
                 ),
                 Text(
@@ -69,9 +70,45 @@ class EndOfYear extends ConsumerWidget {
                   children: [
                     if (isGameOver)
                       Button(
-                        name: 'See high score',
-                        onTap: () {
-                          router.pushReplacementNamed('highscore');
+                        name: '${isGameOver ? 'Set' : 'See'} high score',
+                        onTap: () async {
+                          final controller = TextEditingController();
+                          final done = await showDialog<bool>(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                content: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text('Name:'),
+                                    TextField(controller: controller),
+                                  ],
+                                ),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      if (controller.text.trim().isEmpty) {
+                                        return;
+                                      }
+                                      ref
+                                          .read(highScoreProvider.notifier)
+                                          .addHighScore(
+                                            controller.text,
+                                            total,
+                                          );
+                                      Navigator.of(context).pop(true);
+                                    },
+                                    child: const Text('Save'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                          if (done ?? false) {
+                            controller.dispose();
+                            router.pushReplacementNamed('highscore');
+                          }
                         },
                       )
                     else

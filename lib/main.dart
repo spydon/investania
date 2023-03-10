@@ -12,8 +12,12 @@ class _GameApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return GameWidget<Investania>.controlled(
-      gameFactory: () => Investania(ref),
+    return MaterialApp(
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.dark,
+      home: GameWidget<Investania>.controlled(
+        gameFactory: () => Investania(ref),
+      ),
     );
   }
 }

@@ -41,7 +41,7 @@ class HighScore extends ConsumerWidget {
                   columnWidths: const {
                     0: FlexColumnWidth(),
                   },
-                  defaultColumnWidth: const FlexColumnWidth(4),
+                  defaultColumnWidth: const FlexColumnWidth(3),
                   border: TableBorder.all(width: 2.0, color: Colors.green),
                   children: [
                     const TableRow(
