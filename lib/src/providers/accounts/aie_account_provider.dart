@@ -3,22 +3,22 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'aie_account_provider.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class AieAccount extends _$AieAccount {
   @override
   Account build() {
-    incrementAndStuff();
-    return const Account(0);
+    return const Account(10000, 0, 0);
   }
 
-  Future<void> incrementAndStuff() async {
-    while (true) {
-      await Future<dynamic>.delayed(const Duration(seconds: 1));
-      state = state.copyWith(sum: state.sum + 3);
-    }
+  void add(int money) {
+    state = state.copyWith(sum: state.sum + money);
   }
 
-  void updateWith(double sum) {
+  void remove(int money) {
+    state = state.copyWith(sum: state.sum - money);
+  }
+
+  void updateWith(int sum) {
     state = state.copyWith(sum: sum);
   }
 }

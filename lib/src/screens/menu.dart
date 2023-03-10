@@ -22,19 +22,24 @@ class Menu extends StatelessWidget {
           width: 400,
           child: Column(
             children: [
-              Button(
-                name: 'Start game',
-                onTap: () => router.pushReplacementNamed('game'),
+              const Text(
+                'Investania',
+                style: TextStyle(
+                  color: Colors.green,
+                  fontSize: 50,
+                  fontFamily: 'asap',
+                ),
               ),
               const SizedBox(
-                height: 20,
+                height: 10,
+              ),
+              Button(
+                name: 'Start game',
+                onTap: () => router.pushReplacementNamed('setSavingsOptions'),
               ),
               Button(
                 name: 'Highscore',
                 onTap: () => router.pushReplacementNamed('highscore'),
-              ),
-              const SizedBox(
-                height: 20,
               ),
               Button(
                 name: 'About',

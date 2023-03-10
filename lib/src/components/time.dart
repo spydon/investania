@@ -10,11 +10,14 @@ class Time extends Component with HasGameReference, HasComponentRef {
   Future<void> onLoad() async {
     add(
       _textComponent = TextComponent(
-        position: Vector2(game.size.x / 2, 0),
+        position: Vector2(game.size.x / 2, 4),
         anchor: Anchor.topCenter,
       ),
     );
+  }
 
+  @override
+  void onMount() {
     listen(timeManagerProvider, (oldValue, newValue) {
       _textComponent.text =
           '${newValue.year}/${_twoDigits(newValue.month)}/${_twoDigits(newValue.day)}';
