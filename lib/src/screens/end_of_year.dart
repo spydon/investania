@@ -59,7 +59,7 @@ class EndOfYear extends ConsumerWidget {
                   style: textStyle,
                 ),
                 Text(
-                  'Missed invoices: ${accountNotifier.deductables}',
+                  'Missed invoices: ${accountNotifier.deductables.currency}',
                   style: textStyle,
                 ),
                 Text(
