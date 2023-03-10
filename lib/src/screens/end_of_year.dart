@@ -28,6 +28,8 @@ class EndOfYear extends ConsumerWidget {
     final investmentOption = ref.watch(selectedInvestmentOptionProvider);
     final total = savings.sum + account.sum;
     const textStyle = TextStyle(color: Colors.green);
+    final roiPercent = (savings.roiPercentage * 100).toStringAsFixed(2);
+
     return MaterialApp(
       useInheritedMediaQuery: true,
       debugShowCheckedModeBanner: false,
@@ -65,7 +67,7 @@ class EndOfYear extends ConsumerWidget {
                 ),
                 Text(
                   'Return on investment: '
-                  '${savings.roi} (${savings.roiPercentage * 100}%)',
+                  '${savings.roi} ($roiPercent%)',
                   style: textStyle,
                 ),
                 const SizedBox(height: 20),
