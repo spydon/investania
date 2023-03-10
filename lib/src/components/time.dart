@@ -14,7 +14,10 @@ class Time extends Component with HasGameReference, HasComponentRef {
         anchor: Anchor.topCenter,
       ),
     );
+  }
 
+  @override
+  void onMount() {
     listen(timeManagerProvider, (oldValue, newValue) {
       _textComponent.text =
           '${newValue.year}/${_twoDigits(newValue.month)}/${_twoDigits(newValue.day)}';
