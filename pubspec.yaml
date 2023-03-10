@@ -17,6 +17,7 @@ dependencies:
       url: https://github.com/flame-engine/flame.git
       ref: main
       path: packages/flame
+  flame_audio: ^1.4.0
   flame_riverpod: ^4.0.0+2
   flutter:
     sdk: flutter
@@ -46,6 +47,7 @@ flutter:
     - assets/images/parallax/
     - assets/images/player/
     - assets/fonts/
+    - assets/audio/
 
   fonts:
     - family: asap
