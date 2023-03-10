@@ -29,6 +29,7 @@ class EndOfYear extends ConsumerWidget {
     final total = savings.sum + account.sum;
     const textStyle = TextStyle(color: Colors.green);
     return MaterialApp(
+      useInheritedMediaQuery: true,
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.dark,
