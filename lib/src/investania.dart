@@ -35,7 +35,7 @@ class Investania extends FlameGame
             router: router,
           ),
         ),
-        'game': Route(InvestaniaGame.new),
+        'game': Route(InvestaniaGame.new, maintainState: false),
         'highscore': OverlayRoute(
           (context, game) => HighScore(game: this),
         ),
