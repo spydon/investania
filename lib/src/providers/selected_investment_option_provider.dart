@@ -4,7 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'selected_investment_option_provider.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class SelectedInvestmentOption extends _$SelectedInvestmentOption {
   @override
   InvestmentOption build() => InvestmentOption.interest;
