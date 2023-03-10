@@ -35,8 +35,17 @@ class Joystick extends Component with HasGameReference {
     add(joystick);
   }
 
+  bool isDragging = false;
+
   @override
   void update(double dt) {
-    player.direction.setFrom(joystick.relativeDelta);
+    if (!joystick.delta.isZero()) {
+      isDragging = true;
+      player.direction.setFrom(joystick.relativeDelta);
+    } else if (isDragging) {
+      // Stopped dragging, update bool
+      isDragging = false;
+      player.direction.setFrom(Vector2.zero());
+    }
   }
 }
