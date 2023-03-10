@@ -1,8 +1,13 @@
 import 'dart:math';
+
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:investania/src/investania.dart';
+import 'package:investania/src/providers/accounts/aie_account_provider.dart';
+import 'package:investania/src/providers/accounts/savings_account_provider.dart';
+import 'package:investania/src/providers/date_logic/time_manager.dart';
+import 'package:investania/src/providers/selected_investment_option_provider.dart';
 import 'package:investania/src/widgets/button.dart';
 
 class HighscoreEntry {
@@ -71,9 +76,11 @@ class Highscore extends ConsumerWidget {
                       ),
                       children: [
                         _TableCellPadded(
-                            child: Text('Rank', textScaleFactor: 1.5)),
+                          child: Text('Rank', textScaleFactor: 1.5),
+                        ),
                         _TableCellPadded(
-                            child: Text('Name', textScaleFactor: 1.5)),
+                          child: Text('Name', textScaleFactor: 1.5),
+                        ),
                         _TableCellPadded(
                           child: Text('Savings', textScaleFactor: 1.5),
                         ),
@@ -85,6 +92,9 @@ class Highscore extends ConsumerWidget {
                           _TableCellPadded(child: Text('${index + 1}')),
                           _TableCellPadded(child: Text(e.name)),
                           _TableCellPadded(child: Text(e.totalSavings)),
+                          _TableCellPadded(
+                            child: Text('${e.totalSavings}kr'),
+                          ),
                         ],
                       );
                     }),
@@ -93,7 +103,13 @@ class Highscore extends ConsumerWidget {
                 const SizedBox(height: 10),
                 Button(
                   name: 'Back',
-                  onTap: () => game.router.pushReplacementNamed('menu'),
+                  onTap: () {
+                    ref.invalidate(aieAccountProvider);
+                    ref.invalidate(savingsProvider);
+                    ref.invalidate(selectedInvestmentOptionProvider);
+                    ref.invalidate(timeManagerProvider);
+                    game.router.pushReplacementNamed('menu');
+                  },
                 ),
               ],
             ),

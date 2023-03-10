@@ -1,6 +1,7 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:investania/src/extensions/num_extensions.dart';
 import 'package:investania/src/providers/accounts/aie_account_provider.dart';
 import 'package:investania/src/providers/accounts/savings_account_provider.dart';
 import 'package:investania/src/providers/date_logic/time_manager.dart';
@@ -42,15 +43,15 @@ class EndOfYear extends ConsumerWidget {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  'Total: $max',
+                  'Total: ${max.currency}',
                   style: textStyle,
                 ),
                 Text(
-                  'Savings account: ${savings.sum.toInt()}',
+                  'Savings account: ${savings.sum.currency}',
                   style: textStyle,
                 ),
                 Text(
-                  'Spending account: ${account.sum.toInt()}',
+                  'Spending account: ${account.sum.currency}',
                   style: textStyle,
                 ),
                 Text(
