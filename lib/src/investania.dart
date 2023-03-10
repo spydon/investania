@@ -25,10 +25,15 @@ class Investania extends FlameGame
       initialRoute: 'menu',
       routes: {
         'menu': OverlayRoute(
-          (context, game) => Menu(
-            context: context,
-            router: router,
-          ),
+          (context, game) {
+            FlameAudio.bgm
+                .stop()
+                .then((value) => FlameAudio.bgm.play('cream.mp3'));
+            return Menu(
+              context: context,
+              router: router,
+            );
+          },
         ),
         'about': OverlayRoute(
           (context, game) => About(
