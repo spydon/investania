@@ -43,6 +43,7 @@ class InvestaniaGame extends PositionComponent
     if (ref.read(timeManagerProvider.notifier).levelIsOver()) {
       final investmentOption = ref.read(selectedInvestmentOptionProvider);
       ref.read(savingsProvider.notifier).updateReturn(investmentOption);
+
       game.router.pushReplacementNamed('endOfYear');
     }
   }
