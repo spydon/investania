@@ -11,8 +11,12 @@ import 'package:investania/src/providers/accounts/aie_account_provider.dart';
 class Invoice extends SpriteComponent
     with HasGameReference, CollisionCallbacks, HasComponentRef, PickUp {
   final Vector2 movementSpeed;
+  bool pickedUp = false;
 
   Invoice(this.movementSpeed);
+
+  late int amount;
+  late DateTime dueDate;
 
   @override
   Future<void> onLoad() async {
@@ -20,6 +24,7 @@ class Invoice extends SpriteComponent
     sprite = await Sprite.load('invoice_icon.png');
     size = Vector2.all(componentSize);
     position = Vector2(random.nextDouble() * game.size.x - componentSize, 0);
+
     add(RectangleHitbox());
   }
 
@@ -40,6 +45,7 @@ class Invoice extends SpriteComponent
     super.onCollisionStart(intersectionPoints, other);
     if (other is Player) {
       removeFromParent();
+      pickedUp = true;
       ref.read(aieAccountProvider.notifier).remove(randomAmount);
     }
   }
