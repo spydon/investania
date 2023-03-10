@@ -1,52 +1,26 @@
-import 'dart:math';
-
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:investania/src/extensions/num_extensions.dart';
 import 'package:investania/src/investania.dart';
 import 'package:investania/src/providers/accounts/aie_account_provider.dart';
 import 'package:investania/src/providers/accounts/savings_account_provider.dart';
 import 'package:investania/src/providers/date_logic/time_manager.dart';
+import 'package:investania/src/providers/high_score_provider.dart';
 import 'package:investania/src/providers/selected_investment_option_provider.dart';
 import 'package:investania/src/widgets/button.dart';
 
-class HighscoreEntry {
-  final String name;
-  final String totalSavings;
-
-  const HighscoreEntry({
-    required this.name,
-    required this.totalSavings,
-  });
-}
-
-class Highscore extends ConsumerWidget {
+class HighScore extends ConsumerWidget {
   final Investania game;
-  late final List<HighscoreEntry> _highscore;
 
-  Highscore({
+  const HighScore({
     super.key,
     required this.game,
-  }) {
-    _loadHighscore();
-  }
-
-  void _loadHighscore() {
-    _highscore = List.generate(5, (index) {
-      const max = 1000000;
-      const min = -11;
-
-      final totalSavings = Random().nextInt(max) + min;
-
-      return HighscoreEntry(
-        name: 'Player $index',
-        totalSavings: '$totalSavings',
-      );
-    });
-  }
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final highScore = ref.watch(highScoreProvider);
     return Material(
       child: Container(
         color: Colors.black,
@@ -86,14 +60,13 @@ class Highscore extends ConsumerWidget {
                         ),
                       ],
                     ),
-                    ..._highscore.mapIndexed((index, e) {
+                    ...highScore.take(10).mapIndexed((index, e) {
                       return TableRow(
                         children: [
                           _TableCellPadded(child: Text('${index + 1}')),
                           _TableCellPadded(child: Text(e.name)),
-                          _TableCellPadded(child: Text(e.totalSavings)),
                           _TableCellPadded(
-                            child: Text('${e.totalSavings}kr'),
+                            child: Text(e.totalSavings.currency),
                           ),
                         ],
                       );

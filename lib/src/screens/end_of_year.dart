@@ -23,7 +23,7 @@ class EndOfYear extends ConsumerWidget {
     final savings = ref.watch(savingsProvider);
     final account = ref.watch(aieAccountProvider);
     final isGameOver =
-        ref.watch(timeManagerProvider).year == 2026 || account.sum < 0;
+        ref.watch(timeManagerProvider).year == 2024 || account.sum < 0;
     final investmentOption = ref.watch(selectedInvestmentOptionProvider);
     final max = savings.sum + account.sum;
     const textStyle = TextStyle(color: Colors.green);
@@ -69,7 +69,7 @@ class EndOfYear extends ConsumerWidget {
                   children: [
                     if (isGameOver)
                       Button(
-                        name: 'See highscore',
+                        name: 'See high score',
                         onTap: () {
                           router.pushReplacementNamed('highscore');
                         },
@@ -78,6 +78,7 @@ class EndOfYear extends ConsumerWidget {
                       Button(
                         name: 'Next year!',
                         onTap: () {
+                          // TODO(any): add logic to add new row to high score
                           router.pushReplacementNamed('setSavingsOptions');
                         },
                       ),
