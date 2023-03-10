@@ -11,7 +11,11 @@ import 'package:investania/src/screens/menu.dart';
 import 'package:investania/src/screens/set_savings_options.dart';
 
 class Investania extends FlameGame
-    with HasComponentRef, HasKeyboardHandlerComponents, HasCollisionDetection {
+    with
+        HasComponentRef,
+        HasKeyboardHandlerComponents,
+        HasCollisionDetection,
+        HasDraggables {
   Investania(WidgetRef ref) {
     HasComponentRef.widgetRef = ref;
   }

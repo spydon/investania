@@ -4,6 +4,7 @@ import 'package:flame_riverpod/flame_riverpod.dart';
 import 'package:investania/src/components/aie_account_sum.dart';
 import 'package:investania/src/components/background.dart';
 import 'package:investania/src/components/input.dart';
+import 'package:investania/src/components/joystick.dart';
 import 'package:investania/src/components/pickup_manager.dart';
 import 'package:investania/src/components/player.dart';
 import 'package:investania/src/components/savings_account_sum.dart';
@@ -36,6 +37,7 @@ class InvestaniaGame extends PositionComponent
     camera.viewport.add(SavingsAccountSum());
     camera.viewport.add(AieAccountSum());
     camera.viewport.add(Time());
+    camera.viewport.add(Joystick(player));
   }
 
   @override
