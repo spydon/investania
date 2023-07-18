@@ -39,7 +39,7 @@ class PickUpManager extends Component with HasGameReference, HasComponentRef {
     if (ref.read(timeManagerProvider.notifier).levelIsOver()) {
       ref.read(aieAccountProvider.notifier)
         ..remove(-500 * delayedInvoicePool.length)
-        ..setDeductable(-500 * delayedInvoicePool.length);
+        ..deductables = -500 * delayedInvoicePool.length;
     }
 
     super.update(dt);

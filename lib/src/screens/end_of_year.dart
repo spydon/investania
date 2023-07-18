@@ -32,7 +32,6 @@ class EndOfYear extends ConsumerWidget {
     final roiPercent = (savings.roiPercentage * 100).toStringAsFixed(2);
 
     return MaterialApp(
-      useInheritedMediaQuery: true,
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.dark,
@@ -126,7 +125,7 @@ class EndOfYear extends ConsumerWidget {
                       Button(
                         name: 'Next year!',
                         onTap: () {
-                          accountNotifier.setDeductable(0);
+                          accountNotifier.deductables = 0;
                           // TODO(any): add logic to add new row to high score
                           router.pushReplacementNamed('setSavingsOptions');
                         },

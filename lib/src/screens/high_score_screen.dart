@@ -14,8 +14,8 @@ class HighScore extends ConsumerWidget {
   final Investania game;
 
   const HighScore({
-    super.key,
     required this.game,
+    super.key,
   });
 
   @override
