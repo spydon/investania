@@ -7,37 +7,26 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.3 <3.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
-  build_runner: ^2.3.3
-  collection: ^1.17.0
-  flame:
-    git:
-      url: https://github.com/flame-engine/flame.git
-      ref: main
-      path: packages/flame
-  flame_audio: ^1.4.0
+  build_runner: ^2.4.6
+  collection: ^1.17.1
+  flame: ^1.8.1
+  flame_audio: ^2.0.4
   flame_riverpod: ^4.0.0+2
   flutter:
     sdk: flutter
-  flutter_riverpod: ^2.3.1
-  freezed: ^2.3.2
-  freezed_annotation: ^2.2.0
-  intl: ^0.18.0
-  riverpod_annotation: ^2.0.1
-
-dependency_overrides:
-  flame:
-    git:
-      url: https://github.com/flame-engine/flame.git
-      ref: main
-      path: packages/flame
-
+  flutter_riverpod: ^2.3.6
+  freezed: ^2.4.1
+  freezed_annotation: ^2.4.1
+  gamepads: ^0.1.1
+  intl: ^0.18.1
+  riverpod_annotation: ^2.1.1
 
 dev_dependencies:
-  flame_lint: ^0.2.0
-  riverpod_generator: ^2.1.2
+  flame_lint: ^1.0.0
+  riverpod_generator: ^2.2.3
 
 flutter:
   uses-material-design: true
