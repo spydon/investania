@@ -9,6 +9,7 @@ class SelectedInvestmentOption extends _$SelectedInvestmentOption {
   @override
   InvestmentOption build() => InvestmentOption.interest;
 
+  // ignore: use_setters_to_change_properties
   void set(InvestmentOption option) {
     state = option;
   }

@@ -1,14 +1,20 @@
+import 'package:collection/collection.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/experimental.dart';
+import 'package:flutter/widgets.dart';
 
 class Player extends SpriteAnimationComponent
     with CollisionCallbacks, HasGameReference {
   Player() : super(anchor: Anchor.bottomLeft);
 
   final Vector2 textureSize = Vector2(113, 176);
-  final Vector2 direction = Vector2.zero();
-  final double speed = 200;
+  final Map<({String device, Axis axis}), double> _deviceVelocity = {};
+  final double _movementSpeed = 200;
+
+  void setVelocity(String device, Axis axis, double velocity) {
+    _deviceVelocity[(device: device, axis: axis)] = velocity;
+  }
 
   @override
   Future<void> onLoad() async {
@@ -31,8 +37,19 @@ class Player extends SpriteAnimationComponent
   @override
   void update(double dt) {
     super.update(dt);
-    position.x += direction.x * speed * dt;
-    position.y += direction.y * speed * dt;
+
+    final directionX = _deviceVelocity.entries
+        .where((element) => element.key.axis == Axis.horizontal)
+        .map((e) => e.value)
+        .sum;
+
+    final directionY = _deviceVelocity.entries
+        .where((element) => element.key.axis == Axis.vertical)
+        .map((e) => e.value)
+        .sum;
+
+    position.x += directionX * _movementSpeed * dt;
+    position.y += directionY * _movementSpeed * dt;
     position.y = position.y.clamp(game.size.y - game.size.y / 3.5, game.size.y);
     position.x = position.x.clamp(0, game.size.x - size.x);
   }

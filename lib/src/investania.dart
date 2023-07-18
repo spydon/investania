@@ -15,7 +15,7 @@ class Investania extends FlameGame
         HasComponentRef,
         HasKeyboardHandlerComponents,
         HasCollisionDetection,
-        HasDraggables {
+        DragCallbacks {
   Investania(WidgetRef ref) {
     HasComponentRef.widgetRef = ref;
   }

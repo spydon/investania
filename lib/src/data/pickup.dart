@@ -1,6 +1,6 @@
 import 'dart:math';
 
-abstract class PickUp {
+mixin PickUp {
   final double componentSize = 100;
   final randomAmount = (Random().nextDouble() * 1000).toInt();
 

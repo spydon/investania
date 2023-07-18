@@ -22,8 +22,4 @@ class AieAccount extends _$AieAccount {
   void updateWith(int sum) {
     state = state.copyWith(sum: sum);
   }
-
-  void setDeductable(int sum) {
-    deductables = sum;
-  }
 }
