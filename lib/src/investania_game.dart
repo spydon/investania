@@ -3,6 +3,7 @@ import 'package:flame/experimental.dart';
 import 'package:flame_riverpod/flame_riverpod.dart';
 import 'package:investania/src/components/aie_account_sum.dart';
 import 'package:investania/src/components/background.dart';
+import 'package:investania/src/components/gamepad.dart';
 import 'package:investania/src/components/input.dart';
 import 'package:investania/src/components/joystick.dart';
 import 'package:investania/src/components/pickup_manager.dart';
@@ -28,6 +29,7 @@ class InvestaniaGame extends PositionComponent
     world.addAll([
       Background(),
       Input(player),
+      Gamepad(player),
       player,
       ScreenHitbox(),
       PickUpManager(),
