@@ -28,6 +28,14 @@ dev_dependencies:
   flame_lint: ^1.0.0
   riverpod_generator: ^2.2.3
 
+
+dependency_overrides:
+  flame:
+    git:
+      url: https://github.com/lohnn/flame.git
+      ref: fix/exception_hud_margin_component
+      path: packages/flame
+
 flutter:
   uses-material-design: true
 

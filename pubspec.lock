@@ -292,10 +292,11 @@ packages:
   flame:
     dependency: "direct main"
     description:
-      name: flame
-      sha256: "12db9de3cd31b86465b0c1ea173020fb71b15df424ca01b665fa5300b24864c8"
-      url: "https://pub.dev"
-    source: hosted
+      path: "packages/flame"
+      ref: "fix/exception_hud_margin_component"
+      resolved-ref: "339c45be591a85e0f19f56ca533c852368422d5a"
+      url: "https://github.com/lohnn/flame.git"
+    source: git
     version: "1.8.1"
   flame_audio:
     dependency: "direct main"
